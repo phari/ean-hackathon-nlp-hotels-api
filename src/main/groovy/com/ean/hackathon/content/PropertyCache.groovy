@@ -7,7 +7,7 @@ class PropertyCache {
 
     public static List<String> getHotels(String city, String country) {
         if (city.toUpperCase().equals("NEW YORK")) {
-            return [ "19248" ]
+            return [ "3333", "19", "3476" ]
         }
 
         return []

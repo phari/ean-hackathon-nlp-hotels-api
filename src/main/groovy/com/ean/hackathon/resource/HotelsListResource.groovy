@@ -21,7 +21,10 @@ import java.time.LocalDate
 class HotelsListResource {
 
     private RapidAPIRESTClient rapidAPIRESTClient
-    private PropertyCache propertyCache
+
+    public HotelsListResource(RapidAPIRESTClient rapidAPIRESTClient) {
+        this.rapidAPIRESTClient = rapidAPIRESTClient
+    }
 
     @GET
     @Timed
@@ -30,20 +33,23 @@ class HotelsListResource {
         String cityFound = Parser.identifyCity(freeText);
 
         if (cityFound) {
-            LocalDate twoDaysLater = new LocalDate().plusDays(2)
-            LocalDate threeDaysLater = new LocalDate().plusDays(3)
+            LocalDate twoDaysLater = LocalDate.now().plusDays(2)
+            LocalDate threeDaysLater = LocalDate.now().plusDays(3)
 
+            List<String> hotelIds = PropertyCache.getHotels("New York", "US")
             HotelListReq hotelListReq = new HotelListReq(
                     checkIn: twoDaysLater,
                     checkOut: threeDaysLater,
                     adults: 2,
-                    children: 0,
+                    children: 2,
                     currency: "USD",
                     locale: "en-US",
-                    city: cityFound
+                    city: cityFound,
+                    hotelIds: hotelIds
             )
 
-            String data = rapidAPIRESTClient.getListOfHotels(hotelListReq);
+            def priceAvailability = rapidAPIRESTClient.getListOfHotels(hotelListReq);
+            Response.status(200).entity(priceAvailability).build()
 
         } else {
             Response.status(404).build()

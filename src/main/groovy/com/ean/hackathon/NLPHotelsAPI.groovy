@@ -29,8 +29,8 @@ class NLPHotelsAPI extends Application<NLPHotelsAPIConfig> {
 
     @Override
     void run(NLPHotelsAPIConfig configuration, Environment environment) throws Exception {
-        CloseableHttpClient client = HttpClientFactory.getObject()
+        CloseableHttpClient client = new HttpClientFactory().getObject()
         RapidAPIRESTClient rapidAPIRESTClient = new RapidAPIRESTClient(client)
-        environment.jersey().register(new HotelsListResource())
+        environment.jersey().register(new HotelsListResource(rapidAPIRESTClient))
     }
 }
