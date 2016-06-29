@@ -11,6 +11,7 @@ import org.apache.http.conn.socket.PlainConnectionSocketFactory
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory
 import org.apache.http.conn.ssl.SSLContextBuilder
 import org.apache.http.conn.ssl.TrustSelfSignedStrategy
+import org.apache.http.conn.ssl.TrustStrategy
 import org.apache.http.impl.DefaultConnectionReuseStrategy
 import org.apache.http.impl.client.HttpClients
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager
@@ -18,6 +19,8 @@ import org.apache.http.impl.conn.PoolingHttpClientConnectionManager
 import java.security.KeyManagementException
 import java.security.KeyStoreException
 import java.security.NoSuchAlgorithmException
+import java.security.cert.CertificateException
+import java.security.cert.X509Certificate
 
 /**
  * Factory class to create HttpClient with SSL.
@@ -37,7 +40,13 @@ class HttpClientFactory {
 
         try {
             SSLContextBuilder builder = new SSLContextBuilder();
-            builder.loadTrustMaterial(null, new TrustSelfSignedStrategy());
+            //builder.loadTrustMaterial(null, new TrustSelfSignedStrategy());
+            builder.loadTrustMaterial(null, new TrustStrategy() {
+                public boolean isTrusted(X509Certificate[] arg0, String arg1) throws CertificateException {
+                    return true;
+                }
+            }).build();
+
             SSLConnectionSocketFactory sslsocketFactory = new SSLConnectionSocketFactory(
                     builder.build());
 

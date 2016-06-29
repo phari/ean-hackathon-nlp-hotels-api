@@ -17,9 +17,15 @@ public class PropertyCache {
     }
 
     private PropertyCache() {
-        properties = PropertyCache.class.getClassLoader().getResourceAsStream("propertycatalog.jsonl").readLines()
+        properties = PropertyCache.getClassLoader().getResourceAsStream("propertycatalog.jsonl").readLines()
                 .collectEntries {
             [propertyId(it), it]
+        }
+    }
+
+    public static List<String> getHotels(String city, String country) {
+        if (city.toUpperCase().equals("NEW YORK")) {
+            return [ "3333", "19", "3476" ]
         }
     }
 
