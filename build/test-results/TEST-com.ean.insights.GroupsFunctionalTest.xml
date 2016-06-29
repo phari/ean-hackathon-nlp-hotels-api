@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ean.insights.GroupsFunctionalTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2016-04-20T12:49:11" hostname="LONC02R41JVG8WL.sea.corp.expecn.com" time="0.063">
+  <properties/>
+  <testcase name="return BAD request if no authenticated user present or if the userType is not internal[0]" classname="com.ean.insights.GroupsFunctionalTest" time="0.012"/>
+  <testcase name="return BAD request if no authenticated user present or if the userType is not internal[1]" classname="com.ean.insights.GroupsFunctionalTest" time="0.005"/>
+  <testcase name="return the list of user groups if requested by an authenticated internal user" classname="com.ean.insights.GroupsFunctionalTest" time="0.01"/>
+  <testcase name="return BAD request if no authenticated user present or if the userType is not internal for getUsersInGroup method[0]" classname="com.ean.insights.GroupsFunctionalTest" time="0.005"/>
+  <testcase name="return BAD request if no authenticated user present or if the userType is not internal for getUsersInGroup method[1]" classname="com.ean.insights.GroupsFunctionalTest" time="0.004"/>
+  <testcase name="return NO_CONTENT(204) when requesting the users from an empty user group via the getUsersInGroup method" classname="com.ean.insights.GroupsFunctionalTest" time="0.02"/>
+  <testcase name="return the users when requesting the users under a group via the getUsersInGroup method" classname="com.ean.insights.GroupsFunctionalTest" time="0.007"/>
+  <system-out><![CDATA[INFO  [2016-04-20 12:49:11,791] [Test worker] [] [io.dropwizard.server.ServerFactory]: Starting AuthAPIGateway
+INFO  [2016-04-20 12:49:11,794] [Test worker] [] [org.eclipse.jetty.setuid.SetUIDListener]: Opened application@5f3f00dc{HTTP/1.1}{0.0.0.0:23789}
+INFO  [2016-04-20 12:49:11,795] [Test worker] [] [org.eclipse.jetty.setuid.SetUIDListener]: Opened admin@18e72dc2{HTTP/1.1}{0.0.0.0:8081}
+INFO  [2016-04-20 12:49:11,795] [Test worker] [] [org.eclipse.jetty.server.Server]: jetty-9.2.9.v20150224
+INFO  [2016-04-20 12:49:11,946] [Test worker] [] [io.dropwizard.jersey.DropwizardResourceConfig]: The following paths were found for the configured resources:
+
+    GET     /status (com.ean.dropwizardio.status.StatusResource)
+    GET     /auth/admin/reports (com.ean.insights.resource.AdminResource)
+    GET     /auth/admin/reports/{reportName} (com.ean.insights.resource.AdminResource)
+    POST    /auth/admin/reports/{reportName} (com.ean.insights.resource.AdminResource)
+    GET     /auth/reports/ (com.ean.insights.resource.ReportsResource)
+    GET     /auth/groups/ (com.ean.insights.resource.GroupsResource)
+    GET     /auth/groups/{groupName}/users (com.ean.insights.resource.GroupsResource)
+
+WARN  [2016-04-20 12:49:11,948] [Test worker] [] [org.glassfish.jersey.internal.Errors]: The following warnings have been detected: WARNING: The (sub)resource method getReports in com.ean.insights.resource.ReportsResource contains empty path annotation.
+WARNING: The (sub)resource method getGroups in com.ean.insights.resource.GroupsResource contains empty path annotation.
+
+INFO  [2016-04-20 12:49:11,949] [Test worker] [] [org.eclipse.jetty.server.handler.ContextHandler]: Started i.d.j.MutableServletContextHandler@7e01ccbd{/,null,AVAILABLE}
+INFO  [2016-04-20 12:49:11,951] [Test worker] [] [io.dropwizard.setup.AdminEnvironment]: tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+    POST    /tasks/shutdown (com.ean.dropwizardio.tasks.ShutdownTask)
+
+INFO  [2016-04-20 12:49:11,952] [Test worker] [] [org.eclipse.jetty.server.handler.ContextHandler]: Started i.d.j.MutableServletContextHandler@26985189{/,null,AVAILABLE}
+INFO  [2016-04-20 12:49:11,962] [Test worker] [] [org.eclipse.jetty.server.ServerConnector]: Started application@5f3f00dc{HTTP/1.1}{0.0.0.0:23789}
+INFO  [2016-04-20 12:49:11,963] [Test worker] [] [org.eclipse.jetty.server.ServerConnector]: Started admin@18e72dc2{HTTP/1.1}{0.0.0.0:8081}
+INFO  [2016-04-20 12:49:11,964] [Test worker] [] [org.eclipse.jetty.server.Server]: Started @4803ms
+WARN  [2016-04-20 12:49:11,974] [dw-68 - GET /auth/groups/?authenticatedUser=testuser&userType=external] [TID=47eb2bb6-06f6-11e6-abf3-d39937a387ac] [com.ean.insights.resource.GroupsResource]: Request for retrieving users in grou is not valid for parameters authenticatedUser: testuser, userType: external
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] "GET /auth/groups/?authenticatedUser=testuser&userType=external HTTP/1.1" 400 300 "-" "Java/1.8.0_77" 6
+WARN  [2016-04-20 12:49:11,981] [dw-83 - GET /auth/groups/?authenticatedUser=&userType=internal] [TID=47ecd994-06f6-11e6-abf4-d39937a387ac] [com.ean.insights.resource.GroupsResource]: Request for retrieving users in grou is not valid for parameters authenticatedUser: , userType: internal
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] "GET /auth/groups/?authenticatedUser=&userType=internal HTTP/1.1" 400 300 "-" "Java/1.8.0_77" 2
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] "GET /auth/groups/?authenticatedUser=authenticatedUser&userType=internal HTTP/1.1" 200 112 "-" "Java/1.8.0_77" 5
+WARN  [2016-04-20 12:49:11,995] [dw-83 - GET /auth/groups/external/users?authenticatedUser=testuser&userType=external] [TID=47eeef54-06f6-11e6-abf6-d39937a387ac] [com.ean.insights.resource.GroupsResource]: Request for retrieving users in group is not valid for parameters authenticatedUser: testuser, userType: external, groupName: external
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] "GET /auth/groups/external/users?authenticatedUser=testuser&userType=external HTTP/1.1" 400 314 "-" "Java/1.8.0_77" 3
+WARN  [2016-04-20 12:49:12,000] [dw-68 - GET /auth/groups/internal/users?authenticatedUser=&userType=internal] [TID=47efc3ec-06f6-11e6-abf7-d39937a387ac] [com.ean.insights.resource.GroupsResource]: Request for retrieving users in group is not valid for parameters authenticatedUser: , userType: internal, groupName: internal
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] "GET /auth/groups/internal/users?authenticatedUser=&userType=internal HTTP/1.1" 400 314 "-" "Java/1.8.0_77" 2
+127.0.0.1 - - [20/Apr/2016:12:49:12 +0000] "GET /auth/groups/external/users?authenticatedUser=authenticatedUser&userType=internal HTTP/1.1" 204 - "-" "Java/1.8.0_77" 9
+127.0.0.1 - - [20/Apr/2016:12:49:12 +0000] "GET /auth/groups/internal/users?authenticatedUser=authenticatedUser&userType=internal HTTP/1.1" 204 - "-" "Java/1.8.0_77" 3
+127.0.0.1 - - [20/Apr/2016:12:49:12 +0000] "GET /auth/groups/ActualMarketPayments_Beta_Partners/users?authenticatedUser=authenticatedUser&userType=internal HTTP/1.1" 200 19 "-" "Java/1.8.0_77" 3
+INFO  [2016-04-20 12:49:12,033] [Test worker] [] [org.eclipse.jetty.server.ServerConnector]: Stopped application@5f3f00dc{HTTP/1.1}{0.0.0.0:23789}
+INFO  [2016-04-20 12:49:12,033] [Test worker] [] [org.eclipse.jetty.server.ServerConnector]: Stopped admin@18e72dc2{HTTP/1.1}{0.0.0.0:8081}
+INFO  [2016-04-20 12:49:12,033] [Test worker] [] [org.eclipse.jetty.server.handler.ContextHandler]: Stopped i.d.j.MutableServletContextHandler@26985189{/,null,UNAVAILABLE}
+INFO  [2016-04-20 12:49:12,035] [Test worker] [] [org.eclipse.jetty.server.handler.ContextHandler]: Stopped i.d.j.MutableServletContextHandler@7e01ccbd{/,null,UNAVAILABLE}
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

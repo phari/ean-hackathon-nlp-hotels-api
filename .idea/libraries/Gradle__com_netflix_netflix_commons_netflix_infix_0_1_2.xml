@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.netflix.netflix-commons:netflix-infix:0.1.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.netflix.netflix-commons/netflix-infix/0.1.2/1be571b28cf763019094f6c3071027f541dc24c5/netflix-infix-0.1.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.netflix.netflix-commons/netflix-infix/0.1.2/69172397be7c03658f3318158202a9315d3b6a54/netflix-infix-0.1.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

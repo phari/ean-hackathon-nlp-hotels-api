@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ean.insights.util.RequestValidatorTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2016-04-20T12:49:01" hostname="LONC02R41JVG8WL.sea.corp.expecn.com" time="0.002">
+  <properties/>
+  <testcase name="validation fails with invalid data" classname="com.ean.insights.util.RequestValidatorTest" time="0.001"/>
+  <testcase name="is internal user value valid" classname="com.ean.insights.util.RequestValidatorTest" time="0.0"/>
+  <testcase name="is authenticated user value valid" classname="com.ean.insights.util.RequestValidatorTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

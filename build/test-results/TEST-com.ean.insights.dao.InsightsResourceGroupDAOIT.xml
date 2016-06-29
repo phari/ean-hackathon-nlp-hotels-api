@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ean.insights.dao.InsightsResourceGroupDAOIT" tests="7" skipped="0" failures="0" errors="0" timestamp="2016-04-20T12:49:06" hostname="LONC02R41JVG8WL.sea.corp.expecn.com" time="0.073">
+  <properties/>
+  <testcase name="find all insights reports for a given user" classname="com.ean.insights.dao.InsightsResourceGroupDAOIT" time="0.027"/>
+  <testcase name="find all insights reports for an admin user" classname="com.ean.insights.dao.InsightsResourceGroupDAOIT" time="0.005"/>
+  <testcase name="find all insights reports for a given user and do not require a cid" classname="com.ean.insights.dao.InsightsResourceGroupDAOIT" time="0.006"/>
+  <testcase name="find all user group capabilities by resource id[0]" classname="com.ean.insights.dao.InsightsResourceGroupDAOIT" time="0.006"/>
+  <testcase name="find all user group capabilities by resource id[1]" classname="com.ean.insights.dao.InsightsResourceGroupDAOIT" time="0.002"/>
+  <testcase name="add new usergroup capability to a resource" classname="com.ean.insights.dao.InsightsResourceGroupDAOIT" time="0.014"/>
+  <testcase name="delete usergroup capability to a resource" classname="com.ean.insights.dao.InsightsResourceGroupDAOIT" time="0.009"/>
+  <system-out><![CDATA[INFO  [2016-04-20 12:49:06,198] [Test worker] [] [io.dropwizard.server.ServerFactory]: Starting AuthAPIGateway
+INFO  [2016-04-20 12:49:06,200] [Test worker] [] [org.eclipse.jetty.setuid.SetUIDListener]: Opened application@4f18f561{HTTP/1.1}{0.0.0.0:23789}
+INFO  [2016-04-20 12:49:06,200] [Test worker] [] [org.eclipse.jetty.setuid.SetUIDListener]: Opened admin@78783ee6{HTTP/1.1}{0.0.0.0:8081}
+INFO  [2016-04-20 12:49:06,201] [Test worker] [] [org.eclipse.jetty.server.Server]: jetty-9.2.9.v20150224
+INFO  [2016-04-20 12:49:06,294] [Test worker] [] [io.dropwizard.jersey.DropwizardResourceConfig]: The following paths were found for the configured resources:
+
+    GET     /auth/reports/ (com.ean.insights.resource.ReportsResource)
+    GET     /auth/admin/reports (com.ean.insights.resource.AdminResource)
+    GET     /auth/admin/reports/{reportName} (com.ean.insights.resource.AdminResource)
+    POST    /auth/admin/reports/{reportName} (com.ean.insights.resource.AdminResource)
+    GET     /auth/groups/ (com.ean.insights.resource.GroupsResource)
+    GET     /auth/groups/{groupName}/users (com.ean.insights.resource.GroupsResource)
+    GET     /status (com.ean.dropwizardio.status.StatusResource)
+
+WARN  [2016-04-20 12:49:06,294] [Test worker] [] [org.glassfish.jersey.internal.Errors]: The following warnings have been detected: WARNING: The (sub)resource method getReports in com.ean.insights.resource.ReportsResource contains empty path annotation.
+WARNING: The (sub)resource method getGroups in com.ean.insights.resource.GroupsResource contains empty path annotation.
+
+INFO  [2016-04-20 12:49:06,295] [Test worker] [] [org.eclipse.jetty.server.handler.ContextHandler]: Started i.d.j.MutableServletContextHandler@4f22c106{/,null,AVAILABLE}
+INFO  [2016-04-20 12:49:06,297] [Test worker] [] [io.dropwizard.setup.AdminEnvironment]: tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+    POST    /tasks/shutdown (com.ean.dropwizardio.tasks.ShutdownTask)
+
+INFO  [2016-04-20 12:49:06,297] [Test worker] [] [org.eclipse.jetty.server.handler.ContextHandler]: Started i.d.j.MutableServletContextHandler@3d1ef4f4{/,null,AVAILABLE}
+INFO  [2016-04-20 12:49:06,298] [Test worker] [] [org.eclipse.jetty.server.ServerConnector]: Started application@4f18f561{HTTP/1.1}{0.0.0.0:23789}
+INFO  [2016-04-20 12:49:06,298] [Test worker] [] [org.eclipse.jetty.server.ServerConnector]: Started admin@78783ee6{HTTP/1.1}{0.0.0.0:8081}
+INFO  [2016-04-20 12:49:06,298] [Test worker] [] [org.eclipse.jetty.server.Server]: Started @3490ms
+INFO  [2016-04-20 12:49:06,381] [Test worker] [] [org.eclipse.jetty.server.ServerConnector]: Stopped application@4f18f561{HTTP/1.1}{0.0.0.0:23789}
+INFO  [2016-04-20 12:49:06,382] [Test worker] [] [org.eclipse.jetty.server.ServerConnector]: Stopped admin@78783ee6{HTTP/1.1}{0.0.0.0:8081}
+INFO  [2016-04-20 12:49:06,383] [Test worker] [] [org.eclipse.jetty.server.handler.ContextHandler]: Stopped i.d.j.MutableServletContextHandler@3d1ef4f4{/,null,UNAVAILABLE}
+INFO  [2016-04-20 12:49:06,393] [Test worker] [] [org.eclipse.jetty.server.handler.ContextHandler]: Stopped i.d.j.MutableServletContextHandler@4f22c106{/,null,UNAVAILABLE}
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

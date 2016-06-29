@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.netflix.netflix-commons:netflix-eventbus:0.1.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.netflix.netflix-commons/netflix-eventbus/0.1.2/45882b22d6884f226e9f697e9546d7fc59628566/netflix-eventbus-0.1.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.netflix.netflix-commons/netflix-eventbus/0.1.2/c8436ee8956a14f99605ca43c87b6e2520869bd5/netflix-eventbus-0.1.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

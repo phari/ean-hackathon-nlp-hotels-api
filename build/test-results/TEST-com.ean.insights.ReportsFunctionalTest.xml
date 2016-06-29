@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ean.insights.ReportsFunctionalTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2016-04-20T12:49:12" hostname="LONC02R41JVG8WL.sea.corp.expecn.com" time="0.083">
+  <properties/>
+  <testcase name="Request list of reports which internal user can access should  return list of reports in the response body" classname="com.ean.insights.ReportsFunctionalTest" time="0.036"/>
+  <testcase name="Request list of reports which external user can access should  return list of reports in the response body" classname="com.ean.insights.ReportsFunctionalTest" time="0.007"/>
+  <testcase name="Request list of reports for an external user with special inclusion for Actual payments should  return list of reports which includes actual payments" classname="com.ean.insights.ReportsFunctionalTest" time="0.008"/>
+  <testcase name="Request list of reports for an internal user with special exclusion to actual payments should  return list of reports without actual payments" classname="com.ean.insights.ReportsFunctionalTest" time="0.01"/>
+  <testcase name="Request list of reports for an admin user should  return list of reports containing admin ui" classname="com.ean.insights.ReportsFunctionalTest" time="0.008"/>
+  <testcase name="Invalid usertype request should return bad request status" classname="com.ean.insights.ReportsFunctionalTest" time="0.013"/>
+  <system-out><![CDATA[INFO  [2016-04-20 12:49:12,158] [Test worker] [] [io.dropwizard.server.ServerFactory]: Starting AuthAPIGateway
+INFO  [2016-04-20 12:49:12,161] [Test worker] [] [org.eclipse.jetty.setuid.SetUIDListener]: Opened application@19edd6fc{HTTP/1.1}{0.0.0.0:23789}
+INFO  [2016-04-20 12:49:12,161] [Test worker] [] [org.eclipse.jetty.setuid.SetUIDListener]: Opened admin@652b85ed{HTTP/1.1}{0.0.0.0:8081}
+INFO  [2016-04-20 12:49:12,161] [Test worker] [] [org.eclipse.jetty.server.Server]: jetty-9.2.9.v20150224
+INFO  [2016-04-20 12:49:12,251] [Test worker] [] [io.dropwizard.jersey.DropwizardResourceConfig]: The following paths were found for the configured resources:
+
+    GET     /status (com.ean.dropwizardio.status.StatusResource)
+    GET     /auth/admin/reports (com.ean.insights.resource.AdminResource)
+    GET     /auth/admin/reports/{reportName} (com.ean.insights.resource.AdminResource)
+    POST    /auth/admin/reports/{reportName} (com.ean.insights.resource.AdminResource)
+    GET     /auth/reports/ (com.ean.insights.resource.ReportsResource)
+    GET     /auth/groups/ (com.ean.insights.resource.GroupsResource)
+    GET     /auth/groups/{groupName}/users (com.ean.insights.resource.GroupsResource)
+
+WARN  [2016-04-20 12:49:12,252] [Test worker] [] [org.glassfish.jersey.internal.Errors]: The following warnings have been detected: WARNING: The (sub)resource method getReports in com.ean.insights.resource.ReportsResource contains empty path annotation.
+WARNING: The (sub)resource method getGroups in com.ean.insights.resource.GroupsResource contains empty path annotation.
+
+INFO  [2016-04-20 12:49:12,253] [Test worker] [] [org.eclipse.jetty.server.handler.ContextHandler]: Started i.d.j.MutableServletContextHandler@193316cc{/,null,AVAILABLE}
+INFO  [2016-04-20 12:49:12,254] [Test worker] [] [io.dropwizard.setup.AdminEnvironment]: tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+    POST    /tasks/shutdown (com.ean.dropwizardio.tasks.ShutdownTask)
+
+INFO  [2016-04-20 12:49:12,255] [Test worker] [] [org.eclipse.jetty.server.handler.ContextHandler]: Started i.d.j.MutableServletContextHandler@1c063ad3{/,null,AVAILABLE}
+INFO  [2016-04-20 12:49:12,256] [Test worker] [] [org.eclipse.jetty.server.ServerConnector]: Started application@19edd6fc{HTTP/1.1}{0.0.0.0:23789}
+INFO  [2016-04-20 12:49:12,257] [Test worker] [] [org.eclipse.jetty.server.ServerConnector]: Started admin@652b85ed{HTTP/1.1}{0.0.0.0:8081}
+INFO  [2016-04-20 12:49:12,257] [Test worker] [] [org.eclipse.jetty.server.Server]: Started @5096ms
+127.0.0.1 - - [20/Apr/2016:12:49:12 +0000] "GET /auth/reports?authenticatedUser=authenticatedUserValue&userType=internal&affiliateId=12345 HTTP/1.1" 200 186 "-" "Java/1.8.0_77" 30
+127.0.0.1 - - [20/Apr/2016:12:49:12 +0000] "GET /auth/reports?authenticatedUser=authenticatedUserValue&userType=external&affiliateId=12345 HTTP/1.1" 200 52 "-" "Java/1.8.0_77" 3
+127.0.0.1 - - [20/Apr/2016:12:49:12 +0000] "GET /auth/reports?authenticatedUser=318792&userType=external&affiliateId=318792 HTTP/1.1" 200 129 "-" "Java/1.8.0_77" 3
+127.0.0.1 - - [20/Apr/2016:12:49:12 +0000] "GET /auth/reports?authenticatedUser=testdisableduser&userType=internal&affiliateId=318791 HTTP/1.1" 200 109 "-" "Java/1.8.0_77" 6
+127.0.0.1 - - [20/Apr/2016:12:49:12 +0000] "GET /auth/reports?authenticatedUser=an_admin_user&userType=internal&affiliateId=318791 HTTP/1.1" 200 229 "-" "Java/1.8.0_77" 4
+127.0.0.1 - - [20/Apr/2016:12:49:12 +0000] "GET /auth/reports?authenticatedUser=&userType=invalidType&affiliateId=12345 HTTP/1.1" 400 22 "-" "Java/1.8.0_77" 2
+127.0.0.1 - - [20/Apr/2016:12:49:12 +0000] "GET /auth/reports?authenticatedUser=authenticatedUser&userType=&affiliateId=12345 HTTP/1.1" 400 22 "-" "Java/1.8.0_77" 2
+127.0.0.1 - - [20/Apr/2016:12:49:12 +0000] "GET /auth/reports?authenticatedUser=&userType=internal&affiliateId=12345 HTTP/1.1" 400 22 "-" "Java/1.8.0_77" 2
+127.0.0.1 - - [20/Apr/2016:12:49:12 +0000] "GET /auth/reports?authenticatedUser=&userType=external&affiliateId=12345 HTTP/1.1" 400 22 "-" "Java/1.8.0_77" 2
+INFO  [2016-04-20 12:49:12,343] [Test worker] [] [org.eclipse.jetty.server.ServerConnector]: Stopped application@19edd6fc{HTTP/1.1}{0.0.0.0:23789}
+INFO  [2016-04-20 12:49:12,345] [Test worker] [] [org.eclipse.jetty.server.ServerConnector]: Stopped admin@652b85ed{HTTP/1.1}{0.0.0.0:8081}
+INFO  [2016-04-20 12:49:12,345] [Test worker] [] [org.eclipse.jetty.server.handler.ContextHandler]: Stopped i.d.j.MutableServletContextHandler@1c063ad3{/,null,UNAVAILABLE}
+INFO  [2016-04-20 12:49:12,346] [Test worker] [] [org.eclipse.jetty.server.handler.ContextHandler]: Stopped i.d.j.MutableServletContextHandler@193316cc{/,null,UNAVAILABLE}
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

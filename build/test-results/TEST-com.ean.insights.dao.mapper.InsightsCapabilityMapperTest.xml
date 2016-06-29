@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ean.insights.dao.mapper.InsightsCapabilityMapperTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2016-04-20T12:49:01" hostname="LONC02R41JVG8WL.sea.corp.expecn.com" time="0.241">
+  <properties/>
+  <testcase name="Map on InsightsCapability with database connection successful" classname="com.ean.insights.dao.mapper.InsightsCapabilityMapperTest" time="0.206"/>
+  <testcase name="Map on InsightsCapability with database connection throwing exception" classname="com.ean.insights.dao.mapper.InsightsCapabilityMapperTest" time="0.035"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

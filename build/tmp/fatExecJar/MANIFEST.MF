@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-Time: Apr 20 2016 13:48 BST
+Built-By: LONC02R41JVG8WL.sea.corp.expecn.com
+Built-From-URL: ssh://git@stash.ean:7999/ean/ean-insights-auth-api-gat
+ eway.git
+Built-From-REVISION: 578bbc04eedb4a0d980ca7ae916359371c45ab39
+Built-From-BRANCH: IN-716_FetchByUserGroups
+Main-Class: org.springframework.boot.loader.JarLauncher
+Start-Class: com.ean.insights.AuthAPIGateway
+

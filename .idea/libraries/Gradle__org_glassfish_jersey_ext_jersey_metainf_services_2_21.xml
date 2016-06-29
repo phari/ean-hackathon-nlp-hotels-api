@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.glassfish.jersey.ext:jersey-metainf-services:2.21">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.glassfish.jersey.ext/jersey-metainf-services/2.21/128715c98fde2c9aed80c3767339be211eb5da18/jersey-metainf-services-2.21.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.glassfish.jersey.ext/jersey-metainf-services/2.21/c270ced71bcdbde7352971d04a540477a471e1dc/jersey-metainf-services-2.21-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

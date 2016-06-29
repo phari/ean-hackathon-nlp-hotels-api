@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class com.ean.insights.dao.InsightsResourceDAOIT</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class com.ean.insights.dao.InsightsResourceDAOIT</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.ean.insights.dao.html">com.ean.insights.dao</a> &gt; InsightsResourceDAOIT</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">5</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.142s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">find all insights resources</td>
+<td>0.121s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">find resource by name[0]</td>
+<td>0.005s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">find resource by name[1]</td>
+<td>0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">find resource by name[2]</td>
+<td>0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">update a resource</td>
+<td>0.013s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>INFO  [2016-04-20 12:49:04,728] [Test worker] [] [org.eclipse.jetty.util.log]: Logging initialized @1919ms
+INFO  [2016-04-20 12:49:04,973] [Test worker] [] [io.dropwizard.server.ServerFactory]: Starting AuthAPIGateway
+INFO  [2016-04-20 12:49:05,029] [Test worker] [] [org.eclipse.jetty.setuid.SetUIDListener]: Opened application@13bdb602{HTTP/1.1}{0.0.0.0:23789}
+INFO  [2016-04-20 12:49:05,029] [Test worker] [] [org.eclipse.jetty.setuid.SetUIDListener]: Opened admin@60e6af0b{HTTP/1.1}{0.0.0.0:8081}
+INFO  [2016-04-20 12:49:05,032] [Test worker] [] [org.eclipse.jetty.server.Server]: jetty-9.2.9.v20150224
+INFO  [2016-04-20 12:49:05,845] [Test worker] [] [io.dropwizard.jersey.DropwizardResourceConfig]: The following paths were found for the configured resources:
+
+    GET     /auth/reports/ (com.ean.insights.resource.ReportsResource)
+    GET     /auth/admin/reports (com.ean.insights.resource.AdminResource)
+    GET     /auth/admin/reports/{reportName} (com.ean.insights.resource.AdminResource)
+    POST    /auth/admin/reports/{reportName} (com.ean.insights.resource.AdminResource)
+    GET     /auth/groups/ (com.ean.insights.resource.GroupsResource)
+    GET     /auth/groups/{groupName}/users (com.ean.insights.resource.GroupsResource)
+    GET     /status (com.ean.dropwizardio.status.StatusResource)
+
+WARN  [2016-04-20 12:49:05,847] [Test worker] [] [org.glassfish.jersey.internal.Errors]: The following warnings have been detected: WARNING: The (sub)resource method getReports in com.ean.insights.resource.ReportsResource contains empty path annotation.
+WARNING: The (sub)resource method getGroups in com.ean.insights.resource.GroupsResource contains empty path annotation.
+
+INFO  [2016-04-20 12:49:05,848] [Test worker] [] [org.eclipse.jetty.server.handler.ContextHandler]: Started i.d.j.MutableServletContextHandler@4b873f01{/,null,AVAILABLE}
+INFO  [2016-04-20 12:49:05,853] [Test worker] [] [io.dropwizard.setup.AdminEnvironment]: tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+    POST    /tasks/shutdown (com.ean.dropwizardio.tasks.ShutdownTask)
+
+INFO  [2016-04-20 12:49:05,857] [Test worker] [] [org.eclipse.jetty.server.handler.ContextHandler]: Started i.d.j.MutableServletContextHandler@666ed6ca{/,null,AVAILABLE}
+INFO  [2016-04-20 12:49:05,861] [Test worker] [] [org.eclipse.jetty.server.ServerConnector]: Started application@13bdb602{HTTP/1.1}{0.0.0.0:23789}
+INFO  [2016-04-20 12:49:05,861] [Test worker] [] [org.eclipse.jetty.server.ServerConnector]: Started admin@60e6af0b{HTTP/1.1}{0.0.0.0:8081}
+INFO  [2016-04-20 12:49:05,862] [Test worker] [] [org.eclipse.jetty.server.Server]: Started @3053ms
+INFO  [2016-04-20 12:49:05,884] [Test worker] [] [org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory]: Creating embedded database 'testdb'
+INFO  [2016-04-20 12:49:05,904] [Test worker] [] [org.springframework.jdbc.datasource.init.ScriptUtils]: Executing SQL script from class path resource [db_scripts.sql]
+INFO  [2016-04-20 12:49:05,912] [Test worker] [] [org.springframework.jdbc.datasource.init.ScriptUtils]: Executed SQL script from class path resource [db_scripts.sql] in 8 ms.
+INFO  [2016-04-20 12:49:06,088] [Test worker] [] [org.eclipse.jetty.server.ServerConnector]: Stopped application@13bdb602{HTTP/1.1}{0.0.0.0:23789}
+INFO  [2016-04-20 12:49:06,089] [Test worker] [] [org.eclipse.jetty.server.ServerConnector]: Stopped admin@60e6af0b{HTTP/1.1}{0.0.0.0:8081}
+INFO  [2016-04-20 12:49:06,090] [Test worker] [] [org.eclipse.jetty.server.handler.ContextHandler]: Stopped i.d.j.MutableServletContextHandler@666ed6ca{/,null,UNAVAILABLE}
+INFO  [2016-04-20 12:49:06,093] [Test worker] [] [org.eclipse.jetty.server.handler.ContextHandler]: Stopped i.d.j.MutableServletContextHandler@4b873f01{/,null,UNAVAILABLE}
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 2.9</a> at Apr 20, 2016 1:49:06 PM</p>
+</div>
+</div>
+</body>
+</html>

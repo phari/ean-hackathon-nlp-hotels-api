@@ -1,0 +1,48 @@
+IN-716 Change the queries to consider all available user groups while retruning the list of resources available for a user.
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Date:      Wed Apr 20 08:49:12 2016 +0100
+#
+# On branch IN-716_FetchByUserGroups
+# Your branch is up-to-date with 'origin/IN-716_FetchByUserGroups'.
+#
+# Changes to be committed:
+#	modified:   src/main/groovy/com/ean/insights/AuthAPIGateway.groovy
+#	modified:   src/main/groovy/com/ean/insights/dao/InsightsGroupDAO.groovy
+#	modified:   src/main/groovy/com/ean/insights/dao/InsightsResourceDAO.groovy
+#	modified:   src/main/groovy/com/ean/insights/dao/InsightsResourceGroupDAO.groovy
+#	new file:   src/main/groovy/com/ean/insights/dao/mapper/UserResourceCapabilityMapper.groovy
+#	new file:   src/main/groovy/com/ean/insights/model/UserResourceCapability.groovy
+#	modified:   src/main/groovy/com/ean/insights/resource/ReportsResource.groovy
+#	modified:   src/test/functionalTest/com/ean/insights/ReportsFunctionalTest.groovy
+#	modified:   src/test/groovy/com/ean/insights/resource/ReportsResourceTest.groovy
+#	modified:   src/test/integrationTest/com/ean/insights/dao/InsightsResourceDAOIT.groovy
+#	modified:   src/test/integrationTest/com/ean/insights/dao/InsightsResourceGroupDAOIT.groovy
+#	modified:   src/test/resources/db_scripts.sql
+#
+# Changes not staged for commit:
+#	modified:   dev-config.yml
+#
+# Untracked files:
+#	.DS_Store
+#	src/.DS_Store
+#	src/main/.DS_Store
+#	src/main/groovy/.DS_Store
+#	src/main/groovy/com/.DS_Store
+#	src/main/groovy/com/ean/.DS_Store
+#	src/main/groovy/com/ean/insights/.DS_Store
+#	src/main/groovy/com/ean/insights/config/.DS_Store
+#	src/main/groovy/com/ean/insights/dao/.DS_Store
+#	src/test/.DS_Store
+#	src/test/functionalTest/.DS_Store
+#	src/test/functionalTest/com/.DS_Store
+#	src/test/functionalTest/com/ean/.DS_Store
+#	src/test/functionalTest/com/ean/insights/.DS_Store
+#	src/test/groovy/.DS_Store
+#	src/test/groovy/com/.DS_Store
+#	src/test/groovy/com/ean/.DS_Store
+#	src/test/groovy/com/ean/insights/.DS_Store
+#	src/test/groovy/com/ean/insights/dao/.DS_Store
+#

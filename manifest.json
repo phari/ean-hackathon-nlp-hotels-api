@@ -1,0 +1,4 @@
+{
+  "project": "ean-hackathon-nlp-hotels-api",
+  "deployables": ["build/ean-hackathon-nlp-hotels-api"]
+}

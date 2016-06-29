@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ean.insights.resource.ReportsResourceTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2016-04-20T12:49:01" hostname="LONC02R41JVG8WL.sea.corp.expecn.com" time="0.032">
+  <properties/>
+  <testcase name="request of report names   return a list of reports with affiliateId specified" classname="com.ean.insights.resource.ReportsResourceTest" time="0.023"/>
+  <testcase name="request of report names return a list of reports without affiliateId specified" classname="com.ean.insights.resource.ReportsResourceTest" time="0.002"/>
+  <testcase name="request of report names returns bad status" classname="com.ean.insights.resource.ReportsResourceTest" time="0.001"/>
+  <testcase name="request of report names returns service unavailable when database is unavailable" classname="com.ean.insights.resource.ReportsResourceTest" time="0.002"/>
+  <testcase name="extractOnlyReadResources provides resources with only READ capabilities by ignoring any WRITE/DENY resources" classname="com.ean.insights.resource.ReportsResourceTest" time="0.003"/>
+  <testcase name="extractOnlyReadResources provides READ only resources by making DENY to override a READ capability for same resource" classname="com.ean.insights.resource.ReportsResourceTest" time="0.001"/>
+  <system-out><![CDATA[13:49:01.922 [Test worker] ERROR c.e.i.resource.ReportsResource - A database exception occured while retrieving reports. Details: java.lang.Exception: error
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

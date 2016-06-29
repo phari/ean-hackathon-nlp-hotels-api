@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class com.ean.insights.ReportsFunctionalTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class com.ean.insights.ReportsFunctionalTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.ean.insights.html">com.ean.insights</a> &gt; ReportsFunctionalTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">6</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.082s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">Invalid usertype request should return bad request status</td>
+<td>0.013s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Request list of reports for an admin user should  return list of reports containing admin ui</td>
+<td>0.008s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Request list of reports for an external user with special inclusion for Actual payments should  return list of reports which includes actual payments</td>
+<td>0.008s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Request list of reports for an internal user with special exclusion to actual payments should  return list of reports without actual payments</td>
+<td>0.010s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Request list of reports which external user can access should  return list of reports in the response body</td>
+<td>0.007s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Request list of reports which internal user can access should  return list of reports in the response body</td>
+<td>0.036s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>INFO  [2016-04-20 12:49:12,158] [Test worker] [] [io.dropwizard.server.ServerFactory]: Starting AuthAPIGateway
+INFO  [2016-04-20 12:49:12,161] [Test worker] [] [org.eclipse.jetty.setuid.SetUIDListener]: Opened application@19edd6fc{HTTP/1.1}{0.0.0.0:23789}
+INFO  [2016-04-20 12:49:12,161] [Test worker] [] [org.eclipse.jetty.setuid.SetUIDListener]: Opened admin@652b85ed{HTTP/1.1}{0.0.0.0:8081}
+INFO  [2016-04-20 12:49:12,161] [Test worker] [] [org.eclipse.jetty.server.Server]: jetty-9.2.9.v20150224
+INFO  [2016-04-20 12:49:12,251] [Test worker] [] [io.dropwizard.jersey.DropwizardResourceConfig]: The following paths were found for the configured resources:
+
+    GET     /status (com.ean.dropwizardio.status.StatusResource)
+    GET     /auth/admin/reports (com.ean.insights.resource.AdminResource)
+    GET     /auth/admin/reports/{reportName} (com.ean.insights.resource.AdminResource)
+    POST    /auth/admin/reports/{reportName} (com.ean.insights.resource.AdminResource)
+    GET     /auth/reports/ (com.ean.insights.resource.ReportsResource)
+    GET     /auth/groups/ (com.ean.insights.resource.GroupsResource)
+    GET     /auth/groups/{groupName}/users (com.ean.insights.resource.GroupsResource)
+
+WARN  [2016-04-20 12:49:12,252] [Test worker] [] [org.glassfish.jersey.internal.Errors]: The following warnings have been detected: WARNING: The (sub)resource method getReports in com.ean.insights.resource.ReportsResource contains empty path annotation.
+WARNING: The (sub)resource method getGroups in com.ean.insights.resource.GroupsResource contains empty path annotation.
+
+INFO  [2016-04-20 12:49:12,253] [Test worker] [] [org.eclipse.jetty.server.handler.ContextHandler]: Started i.d.j.MutableServletContextHandler@193316cc{/,null,AVAILABLE}
+INFO  [2016-04-20 12:49:12,254] [Test worker] [] [io.dropwizard.setup.AdminEnvironment]: tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+    POST    /tasks/shutdown (com.ean.dropwizardio.tasks.ShutdownTask)
+
+INFO  [2016-04-20 12:49:12,255] [Test worker] [] [org.eclipse.jetty.server.handler.ContextHandler]: Started i.d.j.MutableServletContextHandler@1c063ad3{/,null,AVAILABLE}
+INFO  [2016-04-20 12:49:12,256] [Test worker] [] [org.eclipse.jetty.server.ServerConnector]: Started application@19edd6fc{HTTP/1.1}{0.0.0.0:23789}
+INFO  [2016-04-20 12:49:12,257] [Test worker] [] [org.eclipse.jetty.server.ServerConnector]: Started admin@652b85ed{HTTP/1.1}{0.0.0.0:8081}
+INFO  [2016-04-20 12:49:12,257] [Test worker] [] [org.eclipse.jetty.server.Server]: Started @5096ms
+127.0.0.1 - - [20/Apr/2016:12:49:12 +0000] &quot;GET /auth/reports?authenticatedUser=authenticatedUserValue&amp;userType=internal&amp;affiliateId=12345 HTTP/1.1&quot; 200 186 &quot;-&quot; &quot;Java/1.8.0_77&quot; 30
+127.0.0.1 - - [20/Apr/2016:12:49:12 +0000] &quot;GET /auth/reports?authenticatedUser=authenticatedUserValue&amp;userType=external&amp;affiliateId=12345 HTTP/1.1&quot; 200 52 &quot;-&quot; &quot;Java/1.8.0_77&quot; 3
+127.0.0.1 - - [20/Apr/2016:12:49:12 +0000] &quot;GET /auth/reports?authenticatedUser=318792&amp;userType=external&amp;affiliateId=318792 HTTP/1.1&quot; 200 129 &quot;-&quot; &quot;Java/1.8.0_77&quot; 3
+127.0.0.1 - - [20/Apr/2016:12:49:12 +0000] &quot;GET /auth/reports?authenticatedUser=testdisableduser&amp;userType=internal&amp;affiliateId=318791 HTTP/1.1&quot; 200 109 &quot;-&quot; &quot;Java/1.8.0_77&quot; 6
+127.0.0.1 - - [20/Apr/2016:12:49:12 +0000] &quot;GET /auth/reports?authenticatedUser=an_admin_user&amp;userType=internal&amp;affiliateId=318791 HTTP/1.1&quot; 200 229 &quot;-&quot; &quot;Java/1.8.0_77&quot; 4
+127.0.0.1 - - [20/Apr/2016:12:49:12 +0000] &quot;GET /auth/reports?authenticatedUser=&amp;userType=invalidType&amp;affiliateId=12345 HTTP/1.1&quot; 400 22 &quot;-&quot; &quot;Java/1.8.0_77&quot; 2
+127.0.0.1 - - [20/Apr/2016:12:49:12 +0000] &quot;GET /auth/reports?authenticatedUser=authenticatedUser&amp;userType=&amp;affiliateId=12345 HTTP/1.1&quot; 400 22 &quot;-&quot; &quot;Java/1.8.0_77&quot; 2
+127.0.0.1 - - [20/Apr/2016:12:49:12 +0000] &quot;GET /auth/reports?authenticatedUser=&amp;userType=internal&amp;affiliateId=12345 HTTP/1.1&quot; 400 22 &quot;-&quot; &quot;Java/1.8.0_77&quot; 2
+127.0.0.1 - - [20/Apr/2016:12:49:12 +0000] &quot;GET /auth/reports?authenticatedUser=&amp;userType=external&amp;affiliateId=12345 HTTP/1.1&quot; 400 22 &quot;-&quot; &quot;Java/1.8.0_77&quot; 2
+INFO  [2016-04-20 12:49:12,343] [Test worker] [] [org.eclipse.jetty.server.ServerConnector]: Stopped application@19edd6fc{HTTP/1.1}{0.0.0.0:23789}
+INFO  [2016-04-20 12:49:12,345] [Test worker] [] [org.eclipse.jetty.server.ServerConnector]: Stopped admin@652b85ed{HTTP/1.1}{0.0.0.0:8081}
+INFO  [2016-04-20 12:49:12,345] [Test worker] [] [org.eclipse.jetty.server.handler.ContextHandler]: Stopped i.d.j.MutableServletContextHandler@1c063ad3{/,null,UNAVAILABLE}
+INFO  [2016-04-20 12:49:12,346] [Test worker] [] [org.eclipse.jetty.server.handler.ContextHandler]: Stopped i.d.j.MutableServletContextHandler@193316cc{/,null,UNAVAILABLE}
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 2.9</a> at Apr 20, 2016 1:49:12 PM</p>
+</div>
+</div>
+</body>
+</html>

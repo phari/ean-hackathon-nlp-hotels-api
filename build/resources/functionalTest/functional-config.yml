@@ -1,0 +1,31 @@
+logging:
+  level: INFO
+
+
+http:
+   port: 23789
+
+database:
+  # the name of your JDBC driver
+  driverClass: org.hsqldb.jdbcDriver
+  # the username
+  user: sa
+  # the password
+  password: ""
+  # the JDBC URL
+  url: jdbc:hsqldb:mem:testdb
+  # any properties specific to your JDBC driver:
+  properties:
+    charSet: UTF-8
+  # the maximum amount of time to wait on an empty pool before throwing an exception
+  maxWaitForConnection: 1s
+  # the SQL query to run when validating a connection's liveness
+  validationQuery: "SELECT 1 FROM INFORMATION_SCHEMA.SYSTEM_USERS"
+  # the minimum number of connections to keep open
+ # minSize: 1
+  # the maximum number of connections to keep open
+  #maxSize: 2
+  # whether or not idle connections should be validated
+  checkConnectionWhileIdle: false - AWS imposed minimum
+
+  logValidationErrors: true

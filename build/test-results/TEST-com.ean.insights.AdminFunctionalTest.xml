@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ean.insights.AdminFunctionalTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2016-04-20T12:49:10" hostname="LONC02R41JVG8WL.sea.corp.expecn.com" time="0.914">
+  <properties/>
+  <testcase name="return BAD request if no authenticaded user present something external" classname="com.ean.insights.AdminFunctionalTest" time="0.356"/>
+  <testcase name="return BAD request if no authenticaded user present  internal" classname="com.ean.insights.AdminFunctionalTest" time="0.006"/>
+  <testcase name="request for  reports returns a list of report names succesfully" classname="com.ean.insights.AdminFunctionalTest" time="0.147"/>
+  <testcase name="request with a specific #reportName returns valid details of the report " classname="com.ean.insights.AdminFunctionalTest" time="0.098"/>
+  <testcase name="request with an invalid report name returns NOT FOUND" classname="com.ean.insights.AdminFunctionalTest" time="0.014"/>
+  <testcase name="add new capability to existing resource" classname="com.ean.insights.AdminFunctionalTest" time="0.147"/>
+  <testcase name="add capability to existing ones with an unknown group" classname="com.ean.insights.AdminFunctionalTest" time="0.03"/>
+  <testcase name="delete  a capability from  existing ones " classname="com.ean.insights.AdminFunctionalTest" time="0.057"/>
+  <testcase name="update display name for a resource" classname="com.ean.insights.AdminFunctionalTest" time="0.058"/>
+  <system-out><![CDATA[INFO  [2016-04-20 12:49:09,061] [Test worker] [] [org.eclipse.jetty.util.log]: Logging initialized @1899ms
+INFO  [2016-04-20 12:49:09,447] [Test worker] [] [io.dropwizard.server.ServerFactory]: Starting AuthAPIGateway
+INFO  [2016-04-20 12:49:09,541] [Test worker] [] [org.eclipse.jetty.setuid.SetUIDListener]: Opened application@7363db5{HTTP/1.1}{0.0.0.0:23789}
+INFO  [2016-04-20 12:49:09,542] [Test worker] [] [org.eclipse.jetty.setuid.SetUIDListener]: Opened admin@d2a187e{HTTP/1.1}{0.0.0.0:8081}
+INFO  [2016-04-20 12:49:09,547] [Test worker] [] [org.eclipse.jetty.server.Server]: jetty-9.2.9.v20150224
+INFO  [2016-04-20 12:49:10,581] [Test worker] [] [io.dropwizard.jersey.DropwizardResourceConfig]: The following paths were found for the configured resources:
+
+    GET     /status (com.ean.dropwizardio.status.StatusResource)
+    GET     /auth/admin/reports (com.ean.insights.resource.AdminResource)
+    GET     /auth/admin/reports/{reportName} (com.ean.insights.resource.AdminResource)
+    POST    /auth/admin/reports/{reportName} (com.ean.insights.resource.AdminResource)
+    GET     /auth/reports/ (com.ean.insights.resource.ReportsResource)
+    GET     /auth/groups/ (com.ean.insights.resource.GroupsResource)
+    GET     /auth/groups/{groupName}/users (com.ean.insights.resource.GroupsResource)
+
+WARN  [2016-04-20 12:49:10,583] [Test worker] [] [org.glassfish.jersey.internal.Errors]: The following warnings have been detected: WARNING: The (sub)resource method getReports in com.ean.insights.resource.ReportsResource contains empty path annotation.
+WARNING: The (sub)resource method getGroups in com.ean.insights.resource.GroupsResource contains empty path annotation.
+
+INFO  [2016-04-20 12:49:10,584] [Test worker] [] [org.eclipse.jetty.server.handler.ContextHandler]: Started i.d.j.MutableServletContextHandler@7d97435d{/,null,AVAILABLE}
+INFO  [2016-04-20 12:49:10,590] [Test worker] [] [io.dropwizard.setup.AdminEnvironment]: tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+    POST    /tasks/shutdown (com.ean.dropwizardio.tasks.ShutdownTask)
+
+INFO  [2016-04-20 12:49:10,598] [Test worker] [] [org.eclipse.jetty.server.handler.ContextHandler]: Started i.d.j.MutableServletContextHandler@1b12c3b1{/,null,AVAILABLE}
+INFO  [2016-04-20 12:49:10,608] [Test worker] [] [org.eclipse.jetty.server.ServerConnector]: Started application@7363db5{HTTP/1.1}{0.0.0.0:23789}
+INFO  [2016-04-20 12:49:10,611] [Test worker] [] [org.eclipse.jetty.server.ServerConnector]: Started admin@d2a187e{HTTP/1.1}{0.0.0.0:8081}
+INFO  [2016-04-20 12:49:10,611] [Test worker] [] [org.eclipse.jetty.server.Server]: Started @3450ms
+INFO  [2016-04-20 12:49:10,631] [Test worker] [] [org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory]: Creating embedded database 'testdb'
+INFO  [2016-04-20 12:49:10,654] [Test worker] [] [org.springframework.jdbc.datasource.init.ScriptUtils]: Executing SQL script from class path resource [db_scripts.sql]
+INFO  [2016-04-20 12:49:10,667] [Test worker] [] [org.springframework.jdbc.datasource.init.ScriptUtils]: Executed SQL script from class path resource [db_scripts.sql] in 13 ms.
+WARN  [2016-04-20 12:49:11,005] [dw-33 - GET /auth/admin/reports?authenticatedUser=something&userType=external] [TID=474b3a02-06f6-11e6-abd8-d39937a387ac] [com.ean.insights.resource.AdminResource]: Get reports request not valid, userType: external, authenticateUser:something
+127.0.0.1 - - [20/Apr/2016:12:49:10 +0000] "GET /auth/admin/reports?authenticatedUser=something&userType=external HTTP/1.1" 400 306 "-" "Java/1.8.0_77" 126
+WARN  [2016-04-20 12:49:11,053] [dw-48 - GET /auth/admin/reports?authenticatedUser=&userType=internal] [TID=475f06fd-06f6-11e6-abd9-d39937a387ac] [com.ean.insights.resource.AdminResource]: Get reports request not valid, userType: internal, authenticateUser:
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] "GET /auth/admin/reports?authenticatedUser=&userType=internal HTTP/1.1" 400 306 "-" "Java/1.8.0_77" 4
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] "GET /auth/admin/reports?authenticatedUser=authenticatedUserValue&userType=internal HTTP/1.1" 200 70 "-" "Java/1.8.0_77" 133
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] "GET /auth/admin/reports?authenticatedUser=authenticatedUserValue&userType=internal HTTP/1.1" 200 70 "-" "Java/1.8.0_77" 5
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] "GET /auth/admin/reports/Actual_Marketing_Payments?authenticatedUser=authenticatedUserValue&userType=internal HTTP/1.1" 200 473 "-" "Java/1.8.0_77" 73
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] "GET /auth/admin/reports/no_such_report?authenticatedUser=authenticatedUserValue&userType=internal HTTP/1.1" 404 35 "-" "Java/1.8.0_77" 13
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] "GET /auth/admin/reports?authenticatedUser=authenticatedUserValue&userType=internal HTTP/1.1" 200 70 "-" "Java/1.8.0_77" 5
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] "GET /auth/admin/reports/Actual_Marketing_Payments?authenticatedUser=authenticatedUserValue&userType=internal HTTP/1.1" 200 473 "-" "Java/1.8.0_77" 7
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] "POST /auth/admin/reports/Actual_Marketing_Payments?authenticatedUser=authenticatedUserValue&userType=internal HTTP/1.1" 201 - "-" "Java/1.8.0_77" 65
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] "GET /auth/admin/reports/Actual_Marketing_Payments?authenticatedUser=authenticatedUserValue&userType=internal HTTP/1.1" 200 519 "-" "Java/1.8.0_77" 9
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] "GET /auth/admin/reports/Actual_Marketing_Payments?authenticatedUser=authenticatedUserValue&userType=internal HTTP/1.1" 200 519 "-" "Java/1.8.0_77" 9
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] "POST /auth/admin/reports/Actual_Marketing_Payments?authenticatedUser=authenticatedUserValue&userType=internal HTTP/1.1" 201 - "-" "Java/1.8.0_77" 14
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] "GET /auth/admin/reports?authenticatedUser=authenticatedUserValue&userType=internal HTTP/1.1" 200 70 "-" "Java/1.8.0_77" 5
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] "GET /auth/admin/reports/Actual_Marketing_Payments?authenticatedUser=authenticatedUserValue&userType=internal HTTP/1.1" 200 473 "-" "Java/1.8.0_77" 7
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] "POST /auth/admin/reports/Actual_Marketing_Payments?authenticatedUser=authenticatedUserValue&userType=internal HTTP/1.1" 400 132 "-" "Java/1.8.0_77" 12
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] "GET /auth/admin/reports?authenticatedUser=authenticatedUserValue&userType=internal HTTP/1.1" 200 70 "-" "Java/1.8.0_77" 5
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] "GET /auth/admin/reports/Actual_Marketing_Payments?authenticatedUser=authenticatedUserValue&userType=internal HTTP/1.1" 200 473 "-" "Java/1.8.0_77" 8
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] "POST /auth/admin/reports/Actual_Marketing_Payments?authenticatedUser=authenticatedUserValue&userType=internal HTTP/1.1" 201 - "-" "Java/1.8.0_77" 10
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] "GET /auth/admin/reports/Actual_Marketing_Payments?authenticatedUser=authenticatedUserValue&userType=internal HTTP/1.1" 200 427 "-" "Java/1.8.0_77" 7
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] "GET /auth/admin/reports/Actual_Marketing_Payments?authenticatedUser=authenticatedUserValue&userType=internal HTTP/1.1" 200 427 "-" "Java/1.8.0_77" 6
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] "POST /auth/admin/reports/Actual_Marketing_Payments?authenticatedUser=authenticatedUserValue&userType=internal HTTP/1.1" 201 - "-" "Java/1.8.0_77" 8
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] "GET /auth/admin/reports?authenticatedUser=authenticatedUserValue&userType=internal HTTP/1.1" 200 70 "-" "Java/1.8.0_77" 4
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] "GET /auth/admin/reports/Actual_Marketing_Payments?authenticatedUser=authenticatedUserValue&userType=internal HTTP/1.1" 200 473 "-" "Java/1.8.0_77" 5
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] "POST /auth/admin/reports/Actual_Marketing_Payments?authenticatedUser=authenticatedUserValue&userType=internal HTTP/1.1" 201 - "-" "Java/1.8.0_77" 12
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] "GET /auth/admin/reports/Actual_Marketing_Payments?authenticatedUser=authenticatedUserValue&userType=internal HTTP/1.1" 200 496 "-" "Java/1.8.0_77" 7
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] "GET /auth/admin/reports/Actual_Marketing_Payments?authenticatedUser=authenticatedUserValue&userType=internal HTTP/1.1" 200 496 "-" "Java/1.8.0_77" 5
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] "POST /auth/admin/reports/Actual_Marketing_Payments?authenticatedUser=authenticatedUserValue&userType=internal HTTP/1.1" 201 - "-" "Java/1.8.0_77" 10
+INFO  [2016-04-20 12:49:11,612] [Test worker] [] [org.eclipse.jetty.server.ServerConnector]: Stopped application@7363db5{HTTP/1.1}{0.0.0.0:23789}
+INFO  [2016-04-20 12:49:11,613] [Test worker] [] [org.eclipse.jetty.server.ServerConnector]: Stopped admin@d2a187e{HTTP/1.1}{0.0.0.0:8081}
+INFO  [2016-04-20 12:49:11,614] [Test worker] [] [org.eclipse.jetty.server.handler.ContextHandler]: Stopped i.d.j.MutableServletContextHandler@1b12c3b1{/,null,UNAVAILABLE}
+INFO  [2016-04-20 12:49:11,618] [Test worker] [] [org.eclipse.jetty.server.handler.ContextHandler]: Stopped i.d.j.MutableServletContextHandler@7d97435d{/,null,UNAVAILABLE}
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

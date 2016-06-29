@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.xbean:xbean-finder:3.11.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.xbean/xbean-finder/3.11.1/7a720836bf5901eaf816b229dcf0cfbb09fbe218/xbean-finder-3.11.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.xbean/xbean-finder/3.11.1/6b3bf4c584aed34e5ccfca8c9effc5612f32e81b/xbean-finder-3.11.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

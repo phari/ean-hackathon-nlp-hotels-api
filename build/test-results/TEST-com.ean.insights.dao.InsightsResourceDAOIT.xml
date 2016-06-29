@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ean.insights.dao.InsightsResourceDAOIT" tests="5" skipped="0" failures="0" errors="0" timestamp="2016-04-20T12:49:05" hostname="LONC02R41JVG8WL.sea.corp.expecn.com" time="0.144">
+  <properties/>
+  <testcase name="find all insights resources" classname="com.ean.insights.dao.InsightsResourceDAOIT" time="0.121"/>
+  <testcase name="find resource by name[0]" classname="com.ean.insights.dao.InsightsResourceDAOIT" time="0.005"/>
+  <testcase name="find resource by name[1]" classname="com.ean.insights.dao.InsightsResourceDAOIT" time="0.002"/>
+  <testcase name="find resource by name[2]" classname="com.ean.insights.dao.InsightsResourceDAOIT" time="0.001"/>
+  <testcase name="update a resource" classname="com.ean.insights.dao.InsightsResourceDAOIT" time="0.013"/>
+  <system-out><![CDATA[INFO  [2016-04-20 12:49:04,728] [Test worker] [] [org.eclipse.jetty.util.log]: Logging initialized @1919ms
+INFO  [2016-04-20 12:49:04,973] [Test worker] [] [io.dropwizard.server.ServerFactory]: Starting AuthAPIGateway
+INFO  [2016-04-20 12:49:05,029] [Test worker] [] [org.eclipse.jetty.setuid.SetUIDListener]: Opened application@13bdb602{HTTP/1.1}{0.0.0.0:23789}
+INFO  [2016-04-20 12:49:05,029] [Test worker] [] [org.eclipse.jetty.setuid.SetUIDListener]: Opened admin@60e6af0b{HTTP/1.1}{0.0.0.0:8081}
+INFO  [2016-04-20 12:49:05,032] [Test worker] [] [org.eclipse.jetty.server.Server]: jetty-9.2.9.v20150224
+INFO  [2016-04-20 12:49:05,845] [Test worker] [] [io.dropwizard.jersey.DropwizardResourceConfig]: The following paths were found for the configured resources:
+
+    GET     /auth/reports/ (com.ean.insights.resource.ReportsResource)
+    GET     /auth/admin/reports (com.ean.insights.resource.AdminResource)
+    GET     /auth/admin/reports/{reportName} (com.ean.insights.resource.AdminResource)
+    POST    /auth/admin/reports/{reportName} (com.ean.insights.resource.AdminResource)
+    GET     /auth/groups/ (com.ean.insights.resource.GroupsResource)
+    GET     /auth/groups/{groupName}/users (com.ean.insights.resource.GroupsResource)
+    GET     /status (com.ean.dropwizardio.status.StatusResource)
+
+WARN  [2016-04-20 12:49:05,847] [Test worker] [] [org.glassfish.jersey.internal.Errors]: The following warnings have been detected: WARNING: The (sub)resource method getReports in com.ean.insights.resource.ReportsResource contains empty path annotation.
+WARNING: The (sub)resource method getGroups in com.ean.insights.resource.GroupsResource contains empty path annotation.
+
+INFO  [2016-04-20 12:49:05,848] [Test worker] [] [org.eclipse.jetty.server.handler.ContextHandler]: Started i.d.j.MutableServletContextHandler@4b873f01{/,null,AVAILABLE}
+INFO  [2016-04-20 12:49:05,853] [Test worker] [] [io.dropwizard.setup.AdminEnvironment]: tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+    POST    /tasks/shutdown (com.ean.dropwizardio.tasks.ShutdownTask)
+
+INFO  [2016-04-20 12:49:05,857] [Test worker] [] [org.eclipse.jetty.server.handler.ContextHandler]: Started i.d.j.MutableServletContextHandler@666ed6ca{/,null,AVAILABLE}
+INFO  [2016-04-20 12:49:05,861] [Test worker] [] [org.eclipse.jetty.server.ServerConnector]: Started application@13bdb602{HTTP/1.1}{0.0.0.0:23789}
+INFO  [2016-04-20 12:49:05,861] [Test worker] [] [org.eclipse.jetty.server.ServerConnector]: Started admin@60e6af0b{HTTP/1.1}{0.0.0.0:8081}
+INFO  [2016-04-20 12:49:05,862] [Test worker] [] [org.eclipse.jetty.server.Server]: Started @3053ms
+INFO  [2016-04-20 12:49:05,884] [Test worker] [] [org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory]: Creating embedded database 'testdb'
+INFO  [2016-04-20 12:49:05,904] [Test worker] [] [org.springframework.jdbc.datasource.init.ScriptUtils]: Executing SQL script from class path resource [db_scripts.sql]
+INFO  [2016-04-20 12:49:05,912] [Test worker] [] [org.springframework.jdbc.datasource.init.ScriptUtils]: Executed SQL script from class path resource [db_scripts.sql] in 8 ms.
+INFO  [2016-04-20 12:49:06,088] [Test worker] [] [org.eclipse.jetty.server.ServerConnector]: Stopped application@13bdb602{HTTP/1.1}{0.0.0.0:23789}
+INFO  [2016-04-20 12:49:06,089] [Test worker] [] [org.eclipse.jetty.server.ServerConnector]: Stopped admin@60e6af0b{HTTP/1.1}{0.0.0.0:8081}
+INFO  [2016-04-20 12:49:06,090] [Test worker] [] [org.eclipse.jetty.server.handler.ContextHandler]: Stopped i.d.j.MutableServletContextHandler@666ed6ca{/,null,UNAVAILABLE}
+INFO  [2016-04-20 12:49:06,093] [Test worker] [] [org.eclipse.jetty.server.handler.ContextHandler]: Stopped i.d.j.MutableServletContextHandler@4b873f01{/,null,UNAVAILABLE}
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

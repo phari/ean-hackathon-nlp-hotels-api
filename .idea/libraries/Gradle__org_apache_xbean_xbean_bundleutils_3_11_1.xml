@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.xbean:xbean-bundleutils:3.11.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.xbean/xbean-bundleutils/3.11.1/8bc6e805b4684137ef3e882c30244104baa5b990/xbean-bundleutils-3.11.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.xbean/xbean-bundleutils/3.11.1/f2023a2901fe53c118757a8a3a1f5446aae043b9/xbean-bundleutils-3.11.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

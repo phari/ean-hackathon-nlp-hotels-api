@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ean.insights.resource.GroupsResourceTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2016-04-20T12:49:01" hostname="LONC02R41JVG8WL.sea.corp.expecn.com" time="0.021">
+  <properties/>
+  <testcase name="request for retrieving groups returns a list of group names" classname="com.ean.insights.resource.GroupsResourceTest" time="0.004"/>
+  <testcase name="request for retrieving groups with database down returns service unavailable" classname="com.ean.insights.resource.GroupsResourceTest" time="0.003"/>
+  <testcase name="request groups with invalid data returns not found" classname="com.ean.insights.resource.GroupsResourceTest" time="0.003"/>
+  <testcase name="request for retrieving group users returns a list of users in group" classname="com.ean.insights.resource.GroupsResourceTest" time="0.006"/>
+  <testcase name="request for retrieving group users while database is down returns service unavailable" classname="com.ean.insights.resource.GroupsResourceTest" time="0.002"/>
+  <testcase name="request group users with invalid data returns not found" classname="com.ean.insights.resource.GroupsResourceTest" time="0.003"/>
+  <system-out><![CDATA[13:49:01.874 [Test worker] ERROR c.e.insights.resource.GroupsResource - A database exception occured while retrieving all group names. Details: java.lang.Exception: error
+13:49:01.875 [Test worker] WARN  c.e.insights.resource.GroupsResource - Request for retrieving users in grou is not valid for parameters authenticatedUser: , userType: internal
+13:49:01.875 [Test worker] WARN  c.e.insights.resource.GroupsResource - Request for retrieving users in grou is not valid for parameters authenticatedUser: null, userType: internal
+13:49:01.876 [Test worker] WARN  c.e.insights.resource.GroupsResource - Request for retrieving users in grou is not valid for parameters authenticatedUser: user, userType: external
+13:49:01.876 [Test worker] WARN  c.e.insights.resource.GroupsResource - Request for retrieving users in grou is not valid for parameters authenticatedUser: user, userType: null
+13:49:01.877 [Test worker] WARN  c.e.insights.resource.GroupsResource - Request for retrieving users in grou is not valid for parameters authenticatedUser: user, userType: 
+13:49:01.885 [Test worker] ERROR c.e.insights.resource.GroupsResource - A database exception occured while retrieving users in groups. Details: java.lang.Exception: error
+13:49:01.886 [Test worker] WARN  c.e.insights.resource.GroupsResource - Request for retrieving users in group is not valid for parameters authenticatedUser: , userType: internal, groupName: group
+13:49:01.887 [Test worker] WARN  c.e.insights.resource.GroupsResource - Request for retrieving users in group is not valid for parameters authenticatedUser: null, userType: internal, groupName: group
+13:49:01.887 [Test worker] WARN  c.e.insights.resource.GroupsResource - Request for retrieving users in group is not valid for parameters authenticatedUser: user, userType: external, groupName: group
+13:49:01.888 [Test worker] WARN  c.e.insights.resource.GroupsResource - Request for retrieving users in group is not valid for parameters authenticatedUser: user, userType: null, groupName: group
+13:49:01.888 [Test worker] WARN  c.e.insights.resource.GroupsResource - Request for retrieving users in group is not valid for parameters authenticatedUser: user, userType: , groupName: group
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

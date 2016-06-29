@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class com.ean.insights.AdminFunctionalTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class com.ean.insights.AdminFunctionalTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.ean.insights.html">com.ean.insights</a> &gt; AdminFunctionalTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">9</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.913s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">add capability to existing ones with an unknown group</td>
+<td>0.030s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">add new capability to existing resource</td>
+<td>0.147s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">delete  a capability from  existing ones </td>
+<td>0.057s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">request for  reports returns a list of report names succesfully</td>
+<td>0.147s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">request with a specific #reportName returns valid details of the report </td>
+<td>0.098s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">request with an invalid report name returns NOT FOUND</td>
+<td>0.014s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">return BAD request if no authenticaded user present  internal</td>
+<td>0.006s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">return BAD request if no authenticaded user present something external</td>
+<td>0.356s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">update display name for a resource</td>
+<td>0.058s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>INFO  [2016-04-20 12:49:09,061] [Test worker] [] [org.eclipse.jetty.util.log]: Logging initialized @1899ms
+INFO  [2016-04-20 12:49:09,447] [Test worker] [] [io.dropwizard.server.ServerFactory]: Starting AuthAPIGateway
+INFO  [2016-04-20 12:49:09,541] [Test worker] [] [org.eclipse.jetty.setuid.SetUIDListener]: Opened application@7363db5{HTTP/1.1}{0.0.0.0:23789}
+INFO  [2016-04-20 12:49:09,542] [Test worker] [] [org.eclipse.jetty.setuid.SetUIDListener]: Opened admin@d2a187e{HTTP/1.1}{0.0.0.0:8081}
+INFO  [2016-04-20 12:49:09,547] [Test worker] [] [org.eclipse.jetty.server.Server]: jetty-9.2.9.v20150224
+INFO  [2016-04-20 12:49:10,581] [Test worker] [] [io.dropwizard.jersey.DropwizardResourceConfig]: The following paths were found for the configured resources:
+
+    GET     /status (com.ean.dropwizardio.status.StatusResource)
+    GET     /auth/admin/reports (com.ean.insights.resource.AdminResource)
+    GET     /auth/admin/reports/{reportName} (com.ean.insights.resource.AdminResource)
+    POST    /auth/admin/reports/{reportName} (com.ean.insights.resource.AdminResource)
+    GET     /auth/reports/ (com.ean.insights.resource.ReportsResource)
+    GET     /auth/groups/ (com.ean.insights.resource.GroupsResource)
+    GET     /auth/groups/{groupName}/users (com.ean.insights.resource.GroupsResource)
+
+WARN  [2016-04-20 12:49:10,583] [Test worker] [] [org.glassfish.jersey.internal.Errors]: The following warnings have been detected: WARNING: The (sub)resource method getReports in com.ean.insights.resource.ReportsResource contains empty path annotation.
+WARNING: The (sub)resource method getGroups in com.ean.insights.resource.GroupsResource contains empty path annotation.
+
+INFO  [2016-04-20 12:49:10,584] [Test worker] [] [org.eclipse.jetty.server.handler.ContextHandler]: Started i.d.j.MutableServletContextHandler@7d97435d{/,null,AVAILABLE}
+INFO  [2016-04-20 12:49:10,590] [Test worker] [] [io.dropwizard.setup.AdminEnvironment]: tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+    POST    /tasks/shutdown (com.ean.dropwizardio.tasks.ShutdownTask)
+
+INFO  [2016-04-20 12:49:10,598] [Test worker] [] [org.eclipse.jetty.server.handler.ContextHandler]: Started i.d.j.MutableServletContextHandler@1b12c3b1{/,null,AVAILABLE}
+INFO  [2016-04-20 12:49:10,608] [Test worker] [] [org.eclipse.jetty.server.ServerConnector]: Started application@7363db5{HTTP/1.1}{0.0.0.0:23789}
+INFO  [2016-04-20 12:49:10,611] [Test worker] [] [org.eclipse.jetty.server.ServerConnector]: Started admin@d2a187e{HTTP/1.1}{0.0.0.0:8081}
+INFO  [2016-04-20 12:49:10,611] [Test worker] [] [org.eclipse.jetty.server.Server]: Started @3450ms
+INFO  [2016-04-20 12:49:10,631] [Test worker] [] [org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory]: Creating embedded database 'testdb'
+INFO  [2016-04-20 12:49:10,654] [Test worker] [] [org.springframework.jdbc.datasource.init.ScriptUtils]: Executing SQL script from class path resource [db_scripts.sql]
+INFO  [2016-04-20 12:49:10,667] [Test worker] [] [org.springframework.jdbc.datasource.init.ScriptUtils]: Executed SQL script from class path resource [db_scripts.sql] in 13 ms.
+WARN  [2016-04-20 12:49:11,005] [dw-33 - GET /auth/admin/reports?authenticatedUser=something&amp;userType=external] [TID=474b3a02-06f6-11e6-abd8-d39937a387ac] [com.ean.insights.resource.AdminResource]: Get reports request not valid, userType: external, authenticateUser:something
+127.0.0.1 - - [20/Apr/2016:12:49:10 +0000] &quot;GET /auth/admin/reports?authenticatedUser=something&amp;userType=external HTTP/1.1&quot; 400 306 &quot;-&quot; &quot;Java/1.8.0_77&quot; 126
+WARN  [2016-04-20 12:49:11,053] [dw-48 - GET /auth/admin/reports?authenticatedUser=&amp;userType=internal] [TID=475f06fd-06f6-11e6-abd9-d39937a387ac] [com.ean.insights.resource.AdminResource]: Get reports request not valid, userType: internal, authenticateUser:
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] &quot;GET /auth/admin/reports?authenticatedUser=&amp;userType=internal HTTP/1.1&quot; 400 306 &quot;-&quot; &quot;Java/1.8.0_77&quot; 4
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] &quot;GET /auth/admin/reports?authenticatedUser=authenticatedUserValue&amp;userType=internal HTTP/1.1&quot; 200 70 &quot;-&quot; &quot;Java/1.8.0_77&quot; 133
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] &quot;GET /auth/admin/reports?authenticatedUser=authenticatedUserValue&amp;userType=internal HTTP/1.1&quot; 200 70 &quot;-&quot; &quot;Java/1.8.0_77&quot; 5
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] &quot;GET /auth/admin/reports/Actual_Marketing_Payments?authenticatedUser=authenticatedUserValue&amp;userType=internal HTTP/1.1&quot; 200 473 &quot;-&quot; &quot;Java/1.8.0_77&quot; 73
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] &quot;GET /auth/admin/reports/no_such_report?authenticatedUser=authenticatedUserValue&amp;userType=internal HTTP/1.1&quot; 404 35 &quot;-&quot; &quot;Java/1.8.0_77&quot; 13
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] &quot;GET /auth/admin/reports?authenticatedUser=authenticatedUserValue&amp;userType=internal HTTP/1.1&quot; 200 70 &quot;-&quot; &quot;Java/1.8.0_77&quot; 5
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] &quot;GET /auth/admin/reports/Actual_Marketing_Payments?authenticatedUser=authenticatedUserValue&amp;userType=internal HTTP/1.1&quot; 200 473 &quot;-&quot; &quot;Java/1.8.0_77&quot; 7
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] &quot;POST /auth/admin/reports/Actual_Marketing_Payments?authenticatedUser=authenticatedUserValue&amp;userType=internal HTTP/1.1&quot; 201 - &quot;-&quot; &quot;Java/1.8.0_77&quot; 65
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] &quot;GET /auth/admin/reports/Actual_Marketing_Payments?authenticatedUser=authenticatedUserValue&amp;userType=internal HTTP/1.1&quot; 200 519 &quot;-&quot; &quot;Java/1.8.0_77&quot; 9
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] &quot;GET /auth/admin/reports/Actual_Marketing_Payments?authenticatedUser=authenticatedUserValue&amp;userType=internal HTTP/1.1&quot; 200 519 &quot;-&quot; &quot;Java/1.8.0_77&quot; 9
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] &quot;POST /auth/admin/reports/Actual_Marketing_Payments?authenticatedUser=authenticatedUserValue&amp;userType=internal HTTP/1.1&quot; 201 - &quot;-&quot; &quot;Java/1.8.0_77&quot; 14
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] &quot;GET /auth/admin/reports?authenticatedUser=authenticatedUserValue&amp;userType=internal HTTP/1.1&quot; 200 70 &quot;-&quot; &quot;Java/1.8.0_77&quot; 5
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] &quot;GET /auth/admin/reports/Actual_Marketing_Payments?authenticatedUser=authenticatedUserValue&amp;userType=internal HTTP/1.1&quot; 200 473 &quot;-&quot; &quot;Java/1.8.0_77&quot; 7
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] &quot;POST /auth/admin/reports/Actual_Marketing_Payments?authenticatedUser=authenticatedUserValue&amp;userType=internal HTTP/1.1&quot; 400 132 &quot;-&quot; &quot;Java/1.8.0_77&quot; 12
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] &quot;GET /auth/admin/reports?authenticatedUser=authenticatedUserValue&amp;userType=internal HTTP/1.1&quot; 200 70 &quot;-&quot; &quot;Java/1.8.0_77&quot; 5
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] &quot;GET /auth/admin/reports/Actual_Marketing_Payments?authenticatedUser=authenticatedUserValue&amp;userType=internal HTTP/1.1&quot; 200 473 &quot;-&quot; &quot;Java/1.8.0_77&quot; 8
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] &quot;POST /auth/admin/reports/Actual_Marketing_Payments?authenticatedUser=authenticatedUserValue&amp;userType=internal HTTP/1.1&quot; 201 - &quot;-&quot; &quot;Java/1.8.0_77&quot; 10
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] &quot;GET /auth/admin/reports/Actual_Marketing_Payments?authenticatedUser=authenticatedUserValue&amp;userType=internal HTTP/1.1&quot; 200 427 &quot;-&quot; &quot;Java/1.8.0_77&quot; 7
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] &quot;GET /auth/admin/reports/Actual_Marketing_Payments?authenticatedUser=authenticatedUserValue&amp;userType=internal HTTP/1.1&quot; 200 427 &quot;-&quot; &quot;Java/1.8.0_77&quot; 6
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] &quot;POST /auth/admin/reports/Actual_Marketing_Payments?authenticatedUser=authenticatedUserValue&amp;userType=internal HTTP/1.1&quot; 201 - &quot;-&quot; &quot;Java/1.8.0_77&quot; 8
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] &quot;GET /auth/admin/reports?authenticatedUser=authenticatedUserValue&amp;userType=internal HTTP/1.1&quot; 200 70 &quot;-&quot; &quot;Java/1.8.0_77&quot; 4
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] &quot;GET /auth/admin/reports/Actual_Marketing_Payments?authenticatedUser=authenticatedUserValue&amp;userType=internal HTTP/1.1&quot; 200 473 &quot;-&quot; &quot;Java/1.8.0_77&quot; 5
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] &quot;POST /auth/admin/reports/Actual_Marketing_Payments?authenticatedUser=authenticatedUserValue&amp;userType=internal HTTP/1.1&quot; 201 - &quot;-&quot; &quot;Java/1.8.0_77&quot; 12
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] &quot;GET /auth/admin/reports/Actual_Marketing_Payments?authenticatedUser=authenticatedUserValue&amp;userType=internal HTTP/1.1&quot; 200 496 &quot;-&quot; &quot;Java/1.8.0_77&quot; 7
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] &quot;GET /auth/admin/reports/Actual_Marketing_Payments?authenticatedUser=authenticatedUserValue&amp;userType=internal HTTP/1.1&quot; 200 496 &quot;-&quot; &quot;Java/1.8.0_77&quot; 5
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] &quot;POST /auth/admin/reports/Actual_Marketing_Payments?authenticatedUser=authenticatedUserValue&amp;userType=internal HTTP/1.1&quot; 201 - &quot;-&quot; &quot;Java/1.8.0_77&quot; 10
+INFO  [2016-04-20 12:49:11,612] [Test worker] [] [org.eclipse.jetty.server.ServerConnector]: Stopped application@7363db5{HTTP/1.1}{0.0.0.0:23789}
+INFO  [2016-04-20 12:49:11,613] [Test worker] [] [org.eclipse.jetty.server.ServerConnector]: Stopped admin@d2a187e{HTTP/1.1}{0.0.0.0:8081}
+INFO  [2016-04-20 12:49:11,614] [Test worker] [] [org.eclipse.jetty.server.handler.ContextHandler]: Stopped i.d.j.MutableServletContextHandler@1b12c3b1{/,null,UNAVAILABLE}
+INFO  [2016-04-20 12:49:11,618] [Test worker] [] [org.eclipse.jetty.server.handler.ContextHandler]: Stopped i.d.j.MutableServletContextHandler@7d97435d{/,null,UNAVAILABLE}
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 2.9</a> at Apr 20, 2016 1:49:12 PM</p>
+</div>
+</div>
+</body>
+</html>

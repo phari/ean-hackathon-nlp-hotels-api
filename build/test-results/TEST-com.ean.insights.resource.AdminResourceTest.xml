@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ean.insights.resource.AdminResourceTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2016-04-20T12:49:01" hostname="LONC02R41JVG8WL.sea.corp.expecn.com" time="0.402">
+  <properties/>
+  <testcase name="request for admin reports returns a list of report names" classname="com.ean.insights.resource.AdminResourceTest" time="0.284"/>
+  <testcase name="request report details for resource" classname="com.ean.insights.resource.AdminResourceTest" time="0.02"/>
+  <testcase name="request report details for resource returns service unavailable when database is unavailable" classname="com.ean.insights.resource.AdminResourceTest" time="0.024"/>
+  <testcase name="request report details for resource with invalid data" classname="com.ean.insights.resource.AdminResourceTest" time="0.01"/>
+  <testcase name="request report details for resource not found" classname="com.ean.insights.resource.AdminResourceTest" time="0.001"/>
+  <testcase name="modify resource without valid displayname" classname="com.ean.insights.resource.AdminResourceTest" time="0.034"/>
+  <testcase name="modify resource to change displayname" classname="com.ean.insights.resource.AdminResourceTest" time="0.006"/>
+  <testcase name="add new capability and change displayname for a report succesfully" classname="com.ean.insights.resource.AdminResourceTest" time="0.009"/>
+  <testcase name="do not add new  capability for a report if there is no change" classname="com.ean.insights.resource.AdminResourceTest" time="0.003"/>
+  <testcase name="delete new  capability for a report if list has missing capabilities" classname="com.ean.insights.resource.AdminResourceTest" time="0.004"/>
+  <testcase name="both delete new  capability for a report if list has missing capabilities" classname="com.ean.insights.resource.AdminResourceTest" time="0.004"/>
+  <testcase name=" delete the last capability for a report " classname="com.ean.insights.resource.AdminResourceTest" time="0.002"/>
+  <system-out><![CDATA[13:49:01.779 [Test worker] ERROR c.e.insights.resource.AdminResource - A database exception occured while retrieving report details. Details: java.lang.Exception: error
+13:49:01.787 [Test worker] WARN  c.e.insights.resource.AdminResource - Get report details request not valid, userType: internal, authenticateUser:
+13:49:01.793 [Test worker] WARN  c.e.insights.resource.AdminResource - Get report details request not valid, userType: internal, authenticateUser:null
+13:49:01.794 [Test worker] WARN  c.e.insights.resource.AdminResource - Get report details request not valid, userType: external, authenticateUser:user
+13:49:01.794 [Test worker] WARN  c.e.insights.resource.AdminResource - Get report details request not valid, userType: null, authenticateUser:user
+13:49:01.795 [Test worker] WARN  c.e.insights.resource.AdminResource - Get report details request not valid, userType: , authenticateUser:user
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,118 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        maven { url "http://maven.ean/content/groups/public/" }
+    }
+
+    dependencies {
+        classpath 'com.ean.gradle:ean-gradle-plugins:0.8.1'
+    }
+}
+
+apply plugin: 'groovy'
+apply plugin: 'ean-project'
+apply plugin: 'ean-fatexecjar'
+apply plugin: 'idea'
+
+project.ext {
+    dropwizardVersion = '0.8.4'
+    guiceVersion = '4.0'
+    logbackVersion = '1.0.13'
+    mainClassName = 'com.ean.rapidhackaton.2016.NLPHotelsAPI'
+}
+
+configurations {
+    all*.exclude group: 'com.codahale.metrics', module: 'metrics-core'
+
+    functionalTestCompile.extendsFrom testCompile
+    functionalTestRuntime.extendsFrom testRuntime
+
+    integrationTestCompile.extendsFrom testCompile
+    integrationTestRuntime.extendsFrom testRuntime
+}
+
+sourceSets {
+    functionalTest {
+        groovy {
+            compileClasspath += main.output + test.output
+            runtimeClasspath += main.output + test.output
+            srcDir file('src/test/functionalTest')
+        }
+        resources.srcDir file('src/test/resources')
+    }
+    integrationTest {
+        groovy {
+            compileClasspath += main.output + test.output
+            runtimeClasspath += main.output + test.output
+            srcDir file('src/test/integrationTest')
+            srcDir file('src/test/functionalTest/com/ean/hackathon/helper')
+        }
+        resources.srcDir file('src/test/resources')
+    }
+}
+
+
+dependencies {
+    compile "io.dropwizard:dropwizard-core:${dropwizardVersion}"
+    compile "io.dropwizard:dropwizard-auth:${dropwizardVersion}"
+    compile "io.dropwizard:dropwizard-client:${dropwizardVersion}"
+    compile "io.dropwizard:dropwizard-metrics:${dropwizardVersion}"
+    compile "io.dropwizard:dropwizard-jdbi:${dropwizardVersion}"
+    compile "io.dropwizard:dropwizard-views:${dropwizardVersion}"
+    compile 'org.codehaus.groovy:groovy-all:2.4.5'
+    compile "com.yammer.metrics:metrics-core:2.2.0"
+
+    compile 'org.apache.httpcomponents:httpclient:4.3.6'
+    compile 'com.ean.dropwizard:ean-dropwizardio:1.2.4'
+
+    testCompile "org.springframework:spring-jdbc:4.1.6.RELEASE"
+    testCompile 'org.hsqldb:hsqldb:2.3.2'
+
+    compile 'org.slf4j:slf4j-api:1.7.5'
+    testCompile('org.spockframework:spock-core:0.7-groovy-2.0') {
+        exclude module: 'groovy-all'
+    }
+    testCompile "io.dropwizard:dropwizard-testing:${dropwizardVersion}"
+    testCompile("org.codehaus.groovy.modules.http-builder:http-builder:0.7.1")
+    testCompile 'com.github.kevinsawicki:http-request:5.5'
+}
+
+fatExec {
+    mainClass = mainClassName
+}
+
+task unitTest(type: Test, dependsOn: testClasses, group: 'Verification', description: 'Unit tests') {
+    exclude '**/functionalTest/**.class'
+    exclude '**/integrationTest/**.class'
+}
+
+task integrationTest(type: Test, dependsOn: testClasses, group: 'Verification', description: 'Integration tests') {
+    testClassesDir = sourceSets.integrationTest.output.classesDir
+    classpath = sourceSets.integrationTest.runtimeClasspath
+    outputs.upToDateWhen { false }
+}
+
+task functionalTest(type: Test, dependsOn: testClasses, group: 'Verification', description: 'Functional tests') {
+    if (project.hasProperty("functionalTestEndPoint")) {
+        systemProperty "functionalTestEndPoint", functionalTestEndPoint
+    }
+    testClassesDir = sourceSets.functionalTest.output.classesDir
+    classpath = sourceSets.functionalTest.runtimeClasspath
+    outputs.upToDateWhen { false }
+}
+
+integrationTest.mustRunAfter = [unitTest]
+functionalTest.mustRunAfter = [integrationTest]
+task test(overwrite: true, type:Task, dependsOn: [unitTest, integrationTest, functionalTest],
+    group: 'Verification', description: 'Run all tests') {}
+
+check.dependsOn = [test]
+
+task run(type: JavaExec, dependsOn: classes) {
+    def config = project.hasProperty('config') ? project.property('config') : 'dev-config.yml'
+
+    description = "Run the API locally using config ${config}, use -Pconfig=config-file.yml to change launch config"
+    main mainClassName
+    args 'server', config
+    classpath sourceSets.main.runtimeClasspath
+}

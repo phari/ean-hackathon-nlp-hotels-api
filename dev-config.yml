@@ -1,0 +1,6 @@
+logging:
+  level: INFO
+
+http:
+   port: 7400
+   adminPort: 7404

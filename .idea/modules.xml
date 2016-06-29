@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ean-hackathon-nlp-hotels-api.iml" filepath="$PROJECT_DIR$/.idea/modules/ean-hackathon-nlp-hotels-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ean-hackathon-nlp-hotels-api_functionalTest.iml" filepath="$PROJECT_DIR$/.idea/modules/ean-hackathon-nlp-hotels-api_functionalTest.iml" group="ean-hackathon-nlp-hotels-api" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ean-hackathon-nlp-hotels-api_integrationTest.iml" filepath="$PROJECT_DIR$/.idea/modules/ean-hackathon-nlp-hotels-api_integrationTest.iml" group="ean-hackathon-nlp-hotels-api" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ean-hackathon-nlp-hotels-api_main.iml" filepath="$PROJECT_DIR$/.idea/modules/ean-hackathon-nlp-hotels-api_main.iml" group="ean-hackathon-nlp-hotels-api" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ean-hackathon-nlp-hotels-api_test.iml" filepath="$PROJECT_DIR$/.idea/modules/ean-hackathon-nlp-hotels-api_test.iml" group="ean-hackathon-nlp-hotels-api" />
+    </modules>
+  </component>
+</project>

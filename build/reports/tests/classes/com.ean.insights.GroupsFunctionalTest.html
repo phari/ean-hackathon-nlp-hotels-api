@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class com.ean.insights.GroupsFunctionalTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class com.ean.insights.GroupsFunctionalTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.ean.insights.html">com.ean.insights</a> &gt; GroupsFunctionalTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">7</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.063s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">return BAD request if no authenticated user present or if the userType is not internal for getUsersInGroup method[0]</td>
+<td>0.005s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">return BAD request if no authenticated user present or if the userType is not internal for getUsersInGroup method[1]</td>
+<td>0.004s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">return BAD request if no authenticated user present or if the userType is not internal[0]</td>
+<td>0.012s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">return BAD request if no authenticated user present or if the userType is not internal[1]</td>
+<td>0.005s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">return NO_CONTENT(204) when requesting the users from an empty user group via the getUsersInGroup method</td>
+<td>0.020s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">return the list of user groups if requested by an authenticated internal user</td>
+<td>0.010s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">return the users when requesting the users under a group via the getUsersInGroup method</td>
+<td>0.007s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>INFO  [2016-04-20 12:49:11,791] [Test worker] [] [io.dropwizard.server.ServerFactory]: Starting AuthAPIGateway
+INFO  [2016-04-20 12:49:11,794] [Test worker] [] [org.eclipse.jetty.setuid.SetUIDListener]: Opened application@5f3f00dc{HTTP/1.1}{0.0.0.0:23789}
+INFO  [2016-04-20 12:49:11,795] [Test worker] [] [org.eclipse.jetty.setuid.SetUIDListener]: Opened admin@18e72dc2{HTTP/1.1}{0.0.0.0:8081}
+INFO  [2016-04-20 12:49:11,795] [Test worker] [] [org.eclipse.jetty.server.Server]: jetty-9.2.9.v20150224
+INFO  [2016-04-20 12:49:11,946] [Test worker] [] [io.dropwizard.jersey.DropwizardResourceConfig]: The following paths were found for the configured resources:
+
+    GET     /status (com.ean.dropwizardio.status.StatusResource)
+    GET     /auth/admin/reports (com.ean.insights.resource.AdminResource)
+    GET     /auth/admin/reports/{reportName} (com.ean.insights.resource.AdminResource)
+    POST    /auth/admin/reports/{reportName} (com.ean.insights.resource.AdminResource)
+    GET     /auth/reports/ (com.ean.insights.resource.ReportsResource)
+    GET     /auth/groups/ (com.ean.insights.resource.GroupsResource)
+    GET     /auth/groups/{groupName}/users (com.ean.insights.resource.GroupsResource)
+
+WARN  [2016-04-20 12:49:11,948] [Test worker] [] [org.glassfish.jersey.internal.Errors]: The following warnings have been detected: WARNING: The (sub)resource method getReports in com.ean.insights.resource.ReportsResource contains empty path annotation.
+WARNING: The (sub)resource method getGroups in com.ean.insights.resource.GroupsResource contains empty path annotation.
+
+INFO  [2016-04-20 12:49:11,949] [Test worker] [] [org.eclipse.jetty.server.handler.ContextHandler]: Started i.d.j.MutableServletContextHandler@7e01ccbd{/,null,AVAILABLE}
+INFO  [2016-04-20 12:49:11,951] [Test worker] [] [io.dropwizard.setup.AdminEnvironment]: tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+    POST    /tasks/shutdown (com.ean.dropwizardio.tasks.ShutdownTask)
+
+INFO  [2016-04-20 12:49:11,952] [Test worker] [] [org.eclipse.jetty.server.handler.ContextHandler]: Started i.d.j.MutableServletContextHandler@26985189{/,null,AVAILABLE}
+INFO  [2016-04-20 12:49:11,962] [Test worker] [] [org.eclipse.jetty.server.ServerConnector]: Started application@5f3f00dc{HTTP/1.1}{0.0.0.0:23789}
+INFO  [2016-04-20 12:49:11,963] [Test worker] [] [org.eclipse.jetty.server.ServerConnector]: Started admin@18e72dc2{HTTP/1.1}{0.0.0.0:8081}
+INFO  [2016-04-20 12:49:11,964] [Test worker] [] [org.eclipse.jetty.server.Server]: Started @4803ms
+WARN  [2016-04-20 12:49:11,974] [dw-68 - GET /auth/groups/?authenticatedUser=testuser&amp;userType=external] [TID=47eb2bb6-06f6-11e6-abf3-d39937a387ac] [com.ean.insights.resource.GroupsResource]: Request for retrieving users in grou is not valid for parameters authenticatedUser: testuser, userType: external
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] &quot;GET /auth/groups/?authenticatedUser=testuser&amp;userType=external HTTP/1.1&quot; 400 300 &quot;-&quot; &quot;Java/1.8.0_77&quot; 6
+WARN  [2016-04-20 12:49:11,981] [dw-83 - GET /auth/groups/?authenticatedUser=&amp;userType=internal] [TID=47ecd994-06f6-11e6-abf4-d39937a387ac] [com.ean.insights.resource.GroupsResource]: Request for retrieving users in grou is not valid for parameters authenticatedUser: , userType: internal
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] &quot;GET /auth/groups/?authenticatedUser=&amp;userType=internal HTTP/1.1&quot; 400 300 &quot;-&quot; &quot;Java/1.8.0_77&quot; 2
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] &quot;GET /auth/groups/?authenticatedUser=authenticatedUser&amp;userType=internal HTTP/1.1&quot; 200 112 &quot;-&quot; &quot;Java/1.8.0_77&quot; 5
+WARN  [2016-04-20 12:49:11,995] [dw-83 - GET /auth/groups/external/users?authenticatedUser=testuser&amp;userType=external] [TID=47eeef54-06f6-11e6-abf6-d39937a387ac] [com.ean.insights.resource.GroupsResource]: Request for retrieving users in group is not valid for parameters authenticatedUser: testuser, userType: external, groupName: external
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] &quot;GET /auth/groups/external/users?authenticatedUser=testuser&amp;userType=external HTTP/1.1&quot; 400 314 &quot;-&quot; &quot;Java/1.8.0_77&quot; 3
+WARN  [2016-04-20 12:49:12,000] [dw-68 - GET /auth/groups/internal/users?authenticatedUser=&amp;userType=internal] [TID=47efc3ec-06f6-11e6-abf7-d39937a387ac] [com.ean.insights.resource.GroupsResource]: Request for retrieving users in group is not valid for parameters authenticatedUser: , userType: internal, groupName: internal
+127.0.0.1 - - [20/Apr/2016:12:49:11 +0000] &quot;GET /auth/groups/internal/users?authenticatedUser=&amp;userType=internal HTTP/1.1&quot; 400 314 &quot;-&quot; &quot;Java/1.8.0_77&quot; 2
+127.0.0.1 - - [20/Apr/2016:12:49:12 +0000] &quot;GET /auth/groups/external/users?authenticatedUser=authenticatedUser&amp;userType=internal HTTP/1.1&quot; 204 - &quot;-&quot; &quot;Java/1.8.0_77&quot; 9
+127.0.0.1 - - [20/Apr/2016:12:49:12 +0000] &quot;GET /auth/groups/internal/users?authenticatedUser=authenticatedUser&amp;userType=internal HTTP/1.1&quot; 204 - &quot;-&quot; &quot;Java/1.8.0_77&quot; 3
+127.0.0.1 - - [20/Apr/2016:12:49:12 +0000] &quot;GET /auth/groups/ActualMarketPayments_Beta_Partners/users?authenticatedUser=authenticatedUser&amp;userType=internal HTTP/1.1&quot; 200 19 &quot;-&quot; &quot;Java/1.8.0_77&quot; 3
+INFO  [2016-04-20 12:49:12,033] [Test worker] [] [org.eclipse.jetty.server.ServerConnector]: Stopped application@5f3f00dc{HTTP/1.1}{0.0.0.0:23789}
+INFO  [2016-04-20 12:49:12,033] [Test worker] [] [org.eclipse.jetty.server.ServerConnector]: Stopped admin@18e72dc2{HTTP/1.1}{0.0.0.0:8081}
+INFO  [2016-04-20 12:49:12,033] [Test worker] [] [org.eclipse.jetty.server.handler.ContextHandler]: Stopped i.d.j.MutableServletContextHandler@26985189{/,null,UNAVAILABLE}
+INFO  [2016-04-20 12:49:12,035] [Test worker] [] [org.eclipse.jetty.server.handler.ContextHandler]: Stopped i.d.j.MutableServletContextHandler@7e01ccbd{/,null,UNAVAILABLE}
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 2.9</a> at Apr 20, 2016 1:49:12 PM</p>
+</div>
+</div>
+</body>
+</html>
