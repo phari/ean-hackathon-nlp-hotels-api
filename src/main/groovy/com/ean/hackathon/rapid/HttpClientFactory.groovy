@@ -2,6 +2,11 @@ package com.ean.hackathon.rapid
 
 import com.ean.messagecorrelation.httpclient.MessageCorrelationInterceptor
 import groovy.util.logging.Slf4j
+import java.security.KeyManagementException
+import java.security.KeyStoreException
+import java.security.NoSuchAlgorithmException
+import java.security.cert.CertificateException
+import java.security.cert.X509Certificate
 import org.apache.http.client.HttpClient
 import org.apache.http.client.config.RequestConfig
 import org.apache.http.config.Registry
@@ -10,18 +15,11 @@ import org.apache.http.conn.socket.ConnectionSocketFactory
 import org.apache.http.conn.socket.PlainConnectionSocketFactory
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory
 import org.apache.http.conn.ssl.SSLContextBuilder
-import org.apache.http.conn.ssl.TrustSelfSignedStrategy
 import org.apache.http.conn.ssl.TrustStrategy
 import org.apache.http.impl.DefaultConnectionReuseStrategy
+import org.apache.http.impl.client.CloseableHttpClient
 import org.apache.http.impl.client.HttpClients
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager
-
-import java.security.KeyManagementException
-import java.security.KeyStoreException
-import java.security.NoSuchAlgorithmException
-import java.security.cert.CertificateException
-import java.security.cert.X509Certificate
-
 /**
  * Factory class to create HttpClient with SSL.
  */
@@ -36,7 +34,7 @@ class HttpClientFactory {
      * @return HTTP client with HTTP over SSL
      * @throws Exception
      */
-    public HttpClient getObject() throws Exception {
+    public CloseableHttpClient getObject() throws Exception {
 
         try {
             SSLContextBuilder builder = new SSLContextBuilder();
