@@ -45,7 +45,19 @@ class NLPService {
                         to: FORMAT.parse(highestConfidence.to.value)
                 ]
             } else {
-
+                def dateValues = dates.collect { FORMAT.parse(it.value) }
+                def min = dateValues.min()
+                def max = dateValues.max()
+                if (min == max) {
+                    return [
+                        from: min,
+                        to: new Date().plus(7)
+                    ]
+                }
+                return [
+                    from: min,
+                    to: max
+                ]
             }
         }
 
