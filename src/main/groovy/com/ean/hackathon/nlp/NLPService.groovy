@@ -19,20 +19,20 @@ class NLPService {
             result.putAll(processDates(jsonEntities.datetime))
         }
         if (jsonEntities.containsKey("location")) {
-            result.putAll(processLocation(jsonEntities.location))
+            result.putAll(processLocations(jsonEntities.location))
+        }
+        if (jsonEntities.containsKey("local_search_query")) {
+            result.putAll(processHotelNames(jsonEntities.local_search_query))
         }
         result
     }
 
-    static Map processLocation(List locations) {
-        if (!locations.isEmpty()) {
-            def highestConfidence = locations.max { it.confidence }
-            return [
-                    location: highestConfidence.value
-            ]
-        }
+    static Map processHotelNames(def hotelNames) {
+        hotelNames ? [hotelName: hotelNames.max { it.confidence }.value] : [:]
+    }
 
-        return [:]
+    static Map processLocations(List locations) {
+        locations ? locations.max { it.confidence }.value : [:]
     }
 
     Map processDates(List dates) {
@@ -49,6 +49,8 @@ class NLPService {
                 def min = dateValues.min()
                 def max = dateValues.max()
                 if (min == max) {
+                    // look for a duration
+
                     return [
                         from: min,
                         to: new Date().plus(7)
@@ -61,11 +63,16 @@ class NLPService {
             }
         }
 
-        return [:]
+        [:]
     }
 
     public static void main(String[] args) {
-        println new NLPService().processRawText("I want to stay in New York for two days. I'll check in July seventh " +
-                "and check out on July fourteenth.")
+        println new NLPService().processRawText(
+            "Show me just the Hilton."
+        )
+        // I'm looking for a hotel in New York next week. I'd like to stay for three days.
+
+        // Show me just the Hilton.
+
     }
 }
