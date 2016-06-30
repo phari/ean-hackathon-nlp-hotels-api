@@ -22,30 +22,30 @@ class DataDump {
 
             JsonSlurper slurper = new JsonSlurper();
 
-            File file = new File('/Users/phari/Downloads/propertycontent.jsonl');
-            if (file.exists()) {
-                file.eachLine { line ->
-                    if (line) {
-                        def jsonObj = slurper.parseText(line);
+            //File file = new File('/Users/phari/Downloads/propertycontent.jsonl');
+        /*if (file.exists()) {
+            file.eachLine { line ->
+                if (line) {
+                    def jsonObj = slurper.parseText(line);
 
-                        long propertyId = Integer.parseInt(jsonObj.property_id);
-                        def address = jsonObj.address;
-                        def city = null;
-                        if (address) {
-                            city = address.city;
-                        }
-
-                        String insertSQL = "INSERT INTO ean_rapid_hotels (hotel_id, city, json_str) VALUES (?, ?, ?);";
-                        PreparedStatement preparedStatement = connection.prepareStatement(insertSQL);
-                        preparedStatement.setLong(1, propertyId)
-                        preparedStatement.setString(2, city)
-                        preparedStatement.setString(3, line)
-
-                        preparedStatement.executeUpdate();
-                        preparedStatement.close();
+                    long propertyId = Integer.parseInt(jsonObj.property_id);
+                    def address = jsonObj.address;
+                    def city = null;
+                    if (address) {
+                        city = address.city;
                     }
+
+                    String insertSQL = "INSERT INTO ean_rapid_hotels (hotel_id, city, json_str) VALUES (?, ?, ?);";
+                    PreparedStatement preparedStatement = connection.prepareStatement(insertSQL);
+                    preparedStatement.setLong(1, propertyId)
+                    preparedStatement.setString(2, city)
+                    preparedStatement.setString(3, line)
+
+                    preparedStatement.executeUpdate();
+                    preparedStatement.close();
                 }
             }
+        }*/
 
             connection.close();
         } catch (Exception e) {

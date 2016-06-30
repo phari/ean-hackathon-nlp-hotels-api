@@ -4,6 +4,7 @@ import com.codahale.metrics.annotation.Timed
 import com.ean.hackathon.model.HotelListReq
 import groovy.json.JsonSlurper
 import org.apache.http.HttpHost
+import org.apache.http.HttpStatus
 import org.apache.http.client.HttpClient
 import org.apache.http.client.methods.CloseableHttpResponse
 import org.apache.http.client.methods.HttpGet
@@ -58,10 +59,19 @@ class RapidAPIRESTClient {
             httpGetReq.addHeader("X-Forwarded-For", "127.0.0.1")
             httpGetReq.addHeader("Accept", "application/json")
             httpGetReq.addHeader("Customer-Ip", "127.0.0.1")
-            CloseableHttpResponse response = httpClient.execute(httpHost, httpGetReq)
 
-            def jsonResult = new JsonSlurper().parse(response.getEntity().content)
-            jsonResult
+            try {
+                CloseableHttpResponse response = httpClient.execute(httpHost, httpGetReq)
+                int statusCode = response.getStatusLine().statusCode
+                if (statusCode == HttpStatus.SC_OK) {
+                    def jsonResult = new JsonSlurper().parse(response.getEntity().content)
+                    jsonResult
+                } else {
+                    throw new RapidAPIException(statusCode, "Error in requesting from Rapid API")
+                }
+            } catch (IOException e) {
+                throw new RapidAPIException(e.getMessage())
+            }
 
         } catch (Exception ex) {
             throw new RuntimeException(ex)
