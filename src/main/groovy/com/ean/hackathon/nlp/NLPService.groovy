@@ -32,7 +32,7 @@ class NLPService {
     }
 
     static Map processLocations(List locations) {
-        locations ? locations.max { it.confidence }.value : [:]
+        locations ? [location: locations.max { it.confidence }.value] : [:]
     }
 
     Map processDates(List dates) {
@@ -68,7 +68,7 @@ class NLPService {
 
     public static void main(String[] args) {
         println new NLPService().processRawText(
-            "Show me just the Hilton."
+            "I'd like to stay in London from next Tuesday to next Sunday. I'll be bringing my wife with me."
         )
         // I'm looking for a hotel in New York next week. I'd like to stay for three days.
 
