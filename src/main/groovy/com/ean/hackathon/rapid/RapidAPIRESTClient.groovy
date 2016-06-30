@@ -1,5 +1,6 @@
 package com.ean.hackathon.rapid
 
+import com.codahale.metrics.annotation.Timed
 import com.ean.hackathon.model.HotelListReq
 import groovy.json.JsonSlurper
 import org.apache.http.HttpHost
@@ -8,8 +9,8 @@ import org.apache.http.client.methods.CloseableHttpResponse
 import org.apache.http.client.methods.HttpGet
 import org.apache.http.client.utils.URIBuilder
 import org.apache.http.impl.client.CloseableHttpClient
-import org.apache.http.util.EntityUtils
 
+import java.security.MessageDigest
 import java.time.format.DateTimeFormatter
 
 /**
@@ -19,8 +20,8 @@ class RapidAPIRESTClient {
 
     private final HttpHost httpHost
     private final CloseableHttpClient httpClient
-    private final String APIKEY = "1biibclk4qfpb59ognph3ldtov"
-    private final String secretKey = "8vvepaj00dkd5"
+    private final String API_KEY = "1biibclk4qfpb59ognph3ldtov"
+    private final String SECRET_KEY = "8vvepaj00dkd5"
     private final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     public RapidAPIRESTClient(HttpClient httpClient) {
@@ -30,6 +31,7 @@ class RapidAPIRESTClient {
         this.httpHost = new HttpHost(endPointURI.getHost(), endPointURI.getPort(), endPointURI.getScheme())
     }
 
+    @Timed
     def getListOfHotels(HotelListReq hotelListReq) {
         try {
             String reqPath = "/1/property"
@@ -45,8 +47,9 @@ class RapidAPIRESTClient {
                     .addParameter("sales_channel", "WEBSITE")
                     .addParameter("sales_environment", "HOTEL_ONLY")
 
-            hotelListReq.hotelIds.each { it ->
-                uriBuilder.addParameter("property_id", it)
+            int endIndex = hotelListReq.hotelIds.size() > 20 ? 19 : hotelListReq.hotelIds.size()
+            hotelListReq.hotelIds.subList(0, endIndex).each { it ->
+                uriBuilder.addParameter("property_id", "${it}")
             }
 
             URI requestURI = uriBuilder.build()
@@ -58,10 +61,6 @@ class RapidAPIRESTClient {
             CloseableHttpResponse response = httpClient.execute(httpHost, httpGetReq)
 
             def jsonResult = new JsonSlurper().parse(response.getEntity().content)
-            //String responseBody = EntityUtils.toString(response.getEntity().content)
-            //println "responseBody: ${responseBody}"
-            //return responseBody
-
             jsonResult
 
         } catch (Exception ex) {
@@ -89,8 +88,38 @@ class RapidAPIRESTClient {
         return "${hotelListReq.adults}"
     }
 
-    private getAuthHeader() {
-        return "EAN APIKey=${APIKEY},Signature=43196bad25c7284a005fa107b3e6fab9"
+    private String getAuthHeader() {
+        return "EAN APIKey=${API_KEY},Signature=${generateSignature()}"
     }
+
+    private String generateSignature() {
+        def unixTime = System.currentTimeMillis() / 1000L;
+
+        def values = [API_KEY, SECRET_KEY, "${unixTime}"]
+        def HEXCHARS = "0123456789abcdef".toCharArray();
+
+        MessageDigest md5digest = null
+        String signature = null
+        try {
+            md5digest = MessageDigest.getInstance("MD5")
+            for (final String val : values) {
+                md5digest.update(val.getBytes("UTF-8"))
+            }
+            final byte[] digest = md5digest.digest()
+            final char[] chars = new char[digest.length * 2]
+            int c = 0
+            for (final byte b : digest) {
+                chars[c++] = HEXCHARS[(b >>> 4) & 0x0f]
+                chars[c++] = HEXCHARS[(b      ) & 0x0f]
+            }
+
+            signature = new String(chars)
+        } finally {
+            md5digest.reset()
+        }
+
+        return signature
+    }
+
 
 }

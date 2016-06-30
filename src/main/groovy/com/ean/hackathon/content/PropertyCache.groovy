@@ -1,11 +1,13 @@
 package com.ean.hackathon.content
 
+import groovy.json.JsonSlurper
+
 import java.util.regex.Pattern
 
 public class PropertyCache {
     private static final Pattern PROPERTY_ID_PATTERN = Pattern.compile("\\{\"property_id\":\"(\\d+)\",\"name\":");
     private static PropertyCache INSTANCE;
-    private Map<Integer, String> properties = [:]
+    private Map<Integer, Object> properties = [:]
 
     public static PropertyCache instance() {
         if (INSTANCE != null) {
@@ -17,9 +19,10 @@ public class PropertyCache {
     }
 
     private PropertyCache() {
+        JsonSlurper slurper = new JsonSlurper()
         properties = PropertyCache.getClassLoader().getResourceAsStream("propertycatalog.jsonl").readLines()
                 .collectEntries {
-            [propertyId(it), it]
+            [propertyId(it), slurper.parseText(it)]
         }
     }
 
@@ -29,15 +32,13 @@ public class PropertyCache {
         }
     }
 
-    public String findById(String propertyId) {
+    public Object findById(String propertyId) {
         return properties.getOrDefault(Integer.parseInt(propertyId), "property not found");
     }
 
-    public List<String> findByCityName(String cityName) {
+    public Map<Integer, Object> findByCityName(String cityName) {
         properties.findAll {
-            it.value.matches(/.*(?i)${cityName}.*/)
-        }.collect {
-            it.value
+            it.value.toString().matches(/.*(?i)${cityName}.*/)
         }
     }
 

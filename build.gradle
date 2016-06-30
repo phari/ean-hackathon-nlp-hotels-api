@@ -59,8 +59,11 @@ dependencies {
     compile "io.dropwizard:dropwizard-metrics:${dropwizardVersion}"
     compile "io.dropwizard:dropwizard-jdbi:${dropwizardVersion}"
     compile "io.dropwizard:dropwizard-views:${dropwizardVersion}"
+    compile "io.dropwizard-bundles:dropwizard-configurable-assets-bundle:${dropwizardVersion}"
     compile 'org.codehaus.groovy:groovy-all:2.4.5'
     compile "com.yammer.metrics:metrics-core:2.2.0"
+    compile 'postgresql:postgresql:9.1-901-1.jdbc4'
+    compile "io.dropwizard:dropwizard-jdbi:${dropwizardVersion}"
 
     compile 'org.apache.httpcomponents:httpclient:4.3.6'
     compile 'com.ean.dropwizard:ean-dropwizardio:1.2.4'

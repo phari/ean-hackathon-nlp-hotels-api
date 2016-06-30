@@ -1,5 +1,7 @@
 package com.ean.hackathon.model
 
+import com.fasterxml.jackson.annotation.JsonIgnore
+
 import java.time.LocalDate
 
 /**
@@ -8,7 +10,10 @@ import java.time.LocalDate
 class HotelListReq {
 
     String city
-    List<String> hotelIds
+
+    @JsonIgnore
+    List<Integer> hotelIds
+
     LocalDate checkIn
     LocalDate checkOut
     int adults

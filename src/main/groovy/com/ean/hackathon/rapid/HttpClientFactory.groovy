@@ -63,7 +63,7 @@ class HttpClientFactory {
                     .setDefaultRequestConfig(
                     RequestConfig.custom()
                             .setConnectTimeout(2000)
-                            .setSocketTimeout(2000)
+                            .setSocketTimeout(5000)
                             .build())
                     .build()
 
