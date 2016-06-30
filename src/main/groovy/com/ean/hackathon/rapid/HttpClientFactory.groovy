@@ -73,7 +73,7 @@ class HttpClientFactory {
                     .setDefaultRequestConfig(
                     RequestConfig.custom()
                             .setConnectTimeout(2000)
-                            .setSocketTimeout(5000)
+                            .setSocketTimeout(6000)
                             .build())
                     .build()
 
@@ -85,7 +85,7 @@ class HttpClientFactory {
             log.error("Key Store Exception while initializing HttpClient ", ex);
         } catch (KeyManagementException ex) {
             log.error("Key Management Exception while initializing HttpClient ", ex);
-    }
+        }
 
     }
 }

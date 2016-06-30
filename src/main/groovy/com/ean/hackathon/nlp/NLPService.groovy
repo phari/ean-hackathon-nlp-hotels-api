@@ -85,7 +85,7 @@ class NLPService {
         "%Hilton Garden Inn%"
 
         println new NLPService().processRawText(
-                "Hotels in London from the tenth of July to the fifteenth of July."
+                "hotels in New York"
         )
         // I'm looking for a hotel in New York next week. I'd like to stay for three days.
         // Hotels in London from the tenth of July to the fifteenth of July.

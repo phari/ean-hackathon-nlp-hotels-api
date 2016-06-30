@@ -13,7 +13,10 @@ interface PropertyCatalogDAO {
     @SqlQuery("select hotel_id, json_str from ean_rapid_hotels where city ilike :city")
     List<HotelInfo> findByCityName(@Bind("city") String city)
 
-    @SqlQuery("select hotel_id from ean_rapid_hotels where city ilike :city")
+    @SqlQuery("select hotel_id from ean_rapid_hotels where city ilike concat('%',:city,'%')")
+    List<Integer> findIdsLikeCityName(@Bind("city") String city)
+
+    @SqlQuery("select hotel_id from ean_rapid_hotels where lower(city) = :city")
     List<Integer> findIdsByCityName(@Bind("city") String city)
 
     @SqlQuery("select json_str from ean_rapid_hotels where hotel_id in (<idList>)")
@@ -21,5 +24,8 @@ interface PropertyCatalogDAO {
 
     @SqlQuery("select distinct(LOWER(city)) from ean_rapid_hotels")
     Set<String> getAllCities()
+
+    @SqlQuery("select hotel_id from ean_rapid_hotels where city ilike concat('%',:city,'%') and hotel_name ilike concat('%',:hotelName,'%')")
+    List<Integer> findByHotelNameInCity(@Bind("city") city, @Bind("hotelName") hotelName)
 
 }

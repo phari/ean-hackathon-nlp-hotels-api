@@ -20,4 +20,5 @@ class HotelListReq {
     int children
     String currency
     String locale
+
 }

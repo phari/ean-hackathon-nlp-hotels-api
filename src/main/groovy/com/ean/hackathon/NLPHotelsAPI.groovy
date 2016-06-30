@@ -4,6 +4,7 @@ import com.ean.dropwizardio.EanBundle
 import com.ean.hackathon.config.NLPHotelsAPIConfig
 import com.ean.hackathon.content.PropertyCache
 import com.ean.hackathon.dao.PropertyCatalogDAO
+import com.ean.hackathon.nlp.NLPService
 import com.ean.hackathon.nlp.Parser
 import com.ean.hackathon.rapid.HttpClientFactory
 import com.ean.hackathon.rapid.RapidAPIRESTClient
@@ -44,6 +45,6 @@ class NLPHotelsAPI extends Application<NLPHotelsAPIConfig> {
 
         //PropertyCache propertyCache = PropertyCache.instance()
         Parser parser = new Parser(propertyCatalogDAO)
-        environment.jersey().register(new HotelsListResource(rapidAPIRESTClient, propertyCatalogDAO, parser))
+        environment.jersey().register(new HotelsListResource(rapidAPIRESTClient, propertyCatalogDAO, parser, new NLPService()))
     }
 }

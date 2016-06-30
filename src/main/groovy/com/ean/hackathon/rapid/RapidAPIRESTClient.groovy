@@ -34,47 +34,42 @@ class RapidAPIRESTClient {
 
     @Timed
     def getListOfHotels(HotelListReq hotelListReq) {
+        String reqPath = "/1/property"
+        URIBuilder uriBuilder = new URIBuilder()
+                .setPath(reqPath)
+                .addParameter("arrival", hotelListReq.checkIn.format(FORMATTER))
+                .addParameter("departure", hotelListReq.checkOut.format(FORMATTER))
+                .addParameter("country", "US")
+                .addParameter("currency", hotelListReq.currency)
+                .addParameter("language", hotelListReq.locale)
+                .addParameter("occupancy", getOccupancyQueryParam(hotelListReq))
+                .addParameter("sort_type", "PREFERRED")
+                .addParameter("sales_channel", "WEBSITE")
+                .addParameter("sales_environment", "HOTEL_ONLY")
+
+        int endIndex = hotelListReq.hotelIds.size() > 20 ? 19 : hotelListReq.hotelIds.size()
+        hotelListReq.hotelIds.subList(0, endIndex).each { it ->
+            uriBuilder.addParameter("property_id", "${it}")
+        }
+
+        URI requestURI = uriBuilder.build()
+        HttpGet httpGetReq = new HttpGet(requestURI)
+        httpGetReq.addHeader("Authorization", getAuthHeader())
+        httpGetReq.addHeader("X-Forwarded-For", "127.0.0.1")
+        httpGetReq.addHeader("Accept", "application/json")
+        httpGetReq.addHeader("Customer-Ip", "127.0.0.1")
+
         try {
-            String reqPath = "/1/property"
-            URIBuilder uriBuilder = new URIBuilder()
-                    .setPath(reqPath)
-                    .addParameter("arrival", hotelListReq.checkIn.format(FORMATTER))
-                    .addParameter("departure", hotelListReq.checkOut.format(FORMATTER))
-                    .addParameter("country", "US")
-                    .addParameter("currency", hotelListReq.currency)
-                    .addParameter("language", hotelListReq.locale)
-                    .addParameter("occupancy", getOccupancyQueryParam(hotelListReq))
-                    .addParameter("sort_type", "PREFERRED")
-                    .addParameter("sales_channel", "WEBSITE")
-                    .addParameter("sales_environment", "HOTEL_ONLY")
-
-            int endIndex = hotelListReq.hotelIds.size() > 20 ? 19 : hotelListReq.hotelIds.size()
-            hotelListReq.hotelIds.subList(0, endIndex).each { it ->
-                uriBuilder.addParameter("property_id", "${it}")
+            CloseableHttpResponse response = httpClient.execute(httpHost, httpGetReq)
+            int statusCode = response.getStatusLine().statusCode
+            if (statusCode == HttpStatus.SC_OK) {
+                def jsonResult = new JsonSlurper().parse(response.getEntity().content)
+                jsonResult
+            } else {
+                throw new RapidAPIException(statusCode, "Error in requesting from Rapid API")
             }
-
-            URI requestURI = uriBuilder.build()
-            HttpGet httpGetReq = new HttpGet(requestURI)
-            httpGetReq.addHeader("Authorization", getAuthHeader())
-            httpGetReq.addHeader("X-Forwarded-For", "127.0.0.1")
-            httpGetReq.addHeader("Accept", "application/json")
-            httpGetReq.addHeader("Customer-Ip", "127.0.0.1")
-
-            try {
-                CloseableHttpResponse response = httpClient.execute(httpHost, httpGetReq)
-                int statusCode = response.getStatusLine().statusCode
-                if (statusCode == HttpStatus.SC_OK) {
-                    def jsonResult = new JsonSlurper().parse(response.getEntity().content)
-                    jsonResult
-                } else {
-                    throw new RapidAPIException(statusCode, "Error in requesting from Rapid API")
-                }
-            } catch (IOException e) {
-                throw new RapidAPIException(e.getMessage())
-            }
-
-        } catch (Exception ex) {
-            throw new RuntimeException(ex)
+        } catch (IOException e) {
+            throw new RapidAPIException(e.getMessage())
         }
     }
 
