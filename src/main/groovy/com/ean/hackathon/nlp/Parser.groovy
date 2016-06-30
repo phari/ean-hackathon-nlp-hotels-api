@@ -13,11 +13,20 @@ class Parser {
         knownCities = propertyCatalogDAO.allCities
     }
 
+    public Parser() {
+        knownCities = ["New York", "London"]
+    }
+
     public boolean isKnwonCity(String city) {
         return knownCities.contains(city.toLowerCase())
     }
 
     public String identifyCity(String freeText) {
+        def location = new NLPService().processRawText(freeText)?.location
+        if (location) {
+            return location.toLowerCase()
+        }
+
         String ignoreCase = freeText.toUpperCase()
         if (ignoreCase.contains("NEW YORK")) {
             return "new york"

@@ -13,17 +13,18 @@ class NLPClient {
 
     public NLPClient() {
         this.host = "api.wit.ai"
-        this.client = new HttpClientFactory().getObject()
+        this.client = HttpClientFactory.singletonClientInstance()
     }
 
-    def String getNLPEntities(String text) {
+    def Map getNLPEntities(String text) {
         URI requestURI = "https://${host}/message?v=20160629&q=${URLEncoder.encode(text)}".toURI()
         HttpGet httpGetReq = new HttpGet(requestURI)
         httpGetReq.addHeader("Authorization", "Bearer OLYCFWAWWOCYK57H2NAZJ23VWNCWXE4D")
         CloseableHttpResponse response = client.execute(httpGetReq)
 
         def jsonResult = new JsonSlurper().parse(response.getEntity().content)
-        client.close()
+        response.close()
+
         jsonResult?.entities
     }
 

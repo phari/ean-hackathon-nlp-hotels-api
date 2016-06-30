@@ -28,6 +28,16 @@ class HttpClientFactory {
     private static final String SCHEME_HTTP = "http"
     private static final String SCHEME_SECURE_HTTP = "https"
 
+    private static CloseableHttpClient SINGLETON_CLIENT
+
+    /**
+     * Lazy singleton instance creation of HttpClient
+     * @return The same instance of a CloseableHttpClient is returned with ever call.
+     */
+    public static CloseableHttpClient singletonClientInstance() {
+        SINGLETON_CLIENT ?: (SINGLETON_CLIENT = new HttpClientFactory().getObject())
+    }
+
     /**
      * HTTP client which provides secure HTTP over SSL with the specified keystore.
      *
