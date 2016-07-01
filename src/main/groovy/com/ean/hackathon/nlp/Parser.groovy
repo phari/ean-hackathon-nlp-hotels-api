@@ -9,7 +9,7 @@ class Parser {
 
     private Set<String> knownCities = new HashSet<String>()
 
-    public Parser(PropertyCatalogDAO propertyCatalogDAO) {
+    public Parser(def propertyCatalogDAO) {
         knownCities = propertyCatalogDAO.allCities
     }
 

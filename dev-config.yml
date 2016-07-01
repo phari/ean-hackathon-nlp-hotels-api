@@ -22,7 +22,7 @@ database:
    # the password
   password: eanrapidcontent
    # the JDBC URL
-  url: jdbc:postgresql://172.21.134.245:5432/eanrapidcontent
+  url: jdbc:postgresql://localhost:5432/eanrapidcontent
    # any properties specific to your JDBC driver:
   properties:
     charSet: UTF-8

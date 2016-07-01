@@ -1,6 +1,7 @@
 package com.ean.hackathon.resource
 
 import com.codahale.metrics.annotation.Timed
+import com.ean.hackathon.dao.FileBasedPropertyCatalogDAO
 import com.ean.hackathon.dao.PropertyCatalogDAO
 import com.ean.hackathon.model.HotelInfo
 import com.ean.hackathon.model.HotelListReq
@@ -26,12 +27,12 @@ import java.time.ZoneId
 class HotelsListResource {
 
     private RapidAPIRESTClient rapidAPIRESTClient
-    private PropertyCatalogDAO propertyCatalogDAO
+    private FileBasedPropertyCatalogDAO propertyCatalogDAO
     private Parser parser
     private NLPService nlpService
 
     public HotelsListResource(RapidAPIRESTClient rapidAPIRESTClient,
-                              PropertyCatalogDAO propertyCatalogDAO,
+                              FileBasedPropertyCatalogDAO propertyCatalogDAO,
                               Parser parser,
                               NLPService nlpService) {
         this.rapidAPIRESTClient = rapidAPIRESTClient
@@ -135,10 +136,10 @@ class HotelsListResource {
                     hotelIds: [ hotelIdList.first() ]
             )
 
-            handleHotelListRequest(hotelListReq, city)
+            return handleHotelListRequest(hotelListReq, city)
         } else {
             println "No Hotels found with that name **${hotelName}** in the city **${city}**"
-            Response.status(404).entity("No Hotels found with that name ${hotelName} in the city ${city}").build()
+            return Response.status(404).entity("No Hotels found with that name ${hotelName} in the city ${city}").build()
         }
 
     }
@@ -148,7 +149,8 @@ class HotelsListResource {
         try {
             availableList = rapidAPIRESTClient.getListOfHotels(hotelListReq);
         } catch (RapidAPIException exception) {
-            Response.status(Response.Status.SERVICE_UNAVAILABLE).entity(exception).build()
+            println "Exception while getting availability for **${city}** ${exception}"
+            return Response.status(Response.Status.SERVICE_UNAVAILABLE).entity(exception).build()
         }
 
         if (availableList) {
@@ -169,10 +171,10 @@ class HotelsListResource {
 
             def listResp = [origReq: hotelListReq, results: hotelResultMap.values()]
 
-            Response.ok(listResp).build()
+            return Response.ok(listResp).build()
         } else {
             println "Availability not found for hotels in the **${city}**"
-            Response.status(404).entity("Availability not found for hotels in the ${city}").build()
+            return Response.status(404).entity("Availability not found for hotels in the ${city}").build()
         }
     }
 

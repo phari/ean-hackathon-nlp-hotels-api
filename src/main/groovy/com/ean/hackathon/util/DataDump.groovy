@@ -17,8 +17,8 @@ class DataDump {
         try {
             Class.forName("org.postgresql.Driver");
             Connection connection = DriverManager
-                    .getConnection("jdbc:postgresql://localhost:5432/eanrapidcontent",
-                    "eanrapidcontent", "eanrapidcontent");
+                    .getConnection("jdbc:postgresql://aoeleaninsdevpostgresdb001.karmalab.net:5432/eaninsights",
+                    "eaninsightsdev", "eanInsightsDev\$");
 
             JsonSlurper slurper = new JsonSlurper();
 
@@ -45,8 +45,8 @@ class DataDump {
                         preparedStatement.setString(3, hotelName)
                         preparedStatement.setString(4, line)
 
-                        //preparedStatement.executeUpdate();
-                        //preparedStatement.close();
+                        preparedStatement.executeUpdate();
+                        preparedStatement.close();
                     }
                 }
             }

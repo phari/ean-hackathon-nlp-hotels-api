@@ -70,6 +70,8 @@ class HttpClientFactory {
                     .setConnectionManager(manager)
                     .setSSLSocketFactory(sslsocketFactory)
                     .setConnectionReuseStrategy(new DefaultConnectionReuseStrategy())
+                    .setMaxConnPerRoute(500)
+                    .setMaxConnTotal(1000)
                     .setDefaultRequestConfig(
                     RequestConfig.custom()
                             .setConnectTimeout(2000)

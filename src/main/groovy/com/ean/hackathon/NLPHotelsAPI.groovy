@@ -3,6 +3,7 @@ package com.ean.hackathon
 import com.ean.dropwizardio.EanBundle
 import com.ean.hackathon.config.NLPHotelsAPIConfig
 import com.ean.hackathon.content.PropertyCache
+import com.ean.hackathon.dao.FileBasedPropertyCatalogDAO
 import com.ean.hackathon.dao.PropertyCatalogDAO
 import com.ean.hackathon.nlp.NLPService
 import com.ean.hackathon.nlp.Parser
@@ -37,8 +38,9 @@ class NLPHotelsAPI extends Application<NLPHotelsAPIConfig> {
     @Override
     void run(NLPHotelsAPIConfig configuration, Environment environment) throws Exception {
         final DBIFactory factory = new DBIFactory()
-        final DBI jdbi = factory.build(environment, configuration.getDatabase(), "eanrapidcontent")
-        final PropertyCatalogDAO propertyCatalogDAO = jdbi.onDemand(PropertyCatalogDAO)
+        //final DBI jdbi = factory.build(environment, configuration.getDatabase(), "eanrapidcontent")
+        //final PropertyCatalogDAO propertyCatalogDAO = jdbi.onDemand(PropertyCatalogDAO)
+        final FileBasedPropertyCatalogDAO propertyCatalogDAO = new FileBasedPropertyCatalogDAO();
 
         CloseableHttpClient client = new HttpClientFactory().getObject()
         RapidAPIRESTClient rapidAPIRESTClient = new RapidAPIRESTClient(client)
